@@ -1,0 +1,852 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7D45D0914CF4DA9DF875D069 /* Pods_Pollux_REC_Attendance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BD7395134F3291EE778B6E /* Pods_Pollux_REC_Attendance.framework */; };
+		AF0CF4351FE6093C00FE893A /* ClassTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CF4341FE6093C00FE893A /* ClassTableView.swift */; };
+		AF0CF4371FE60A8B00FE893A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CF4361FE60A8B00FE893A /* DataManager.swift */; };
+		AF0CF43B1FFAF87300FE893A /* StudentAttendanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CF43A1FFAF87300FE893A /* StudentAttendanceCell.swift */; };
+		AF13796D212760BB00D04E2B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13796C212760BB00D04E2B /* SignInViewController.swift */; };
+		AF1AD96C20FC659C008F2950 /* SessionScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1AD96B20FC659C008F2950 /* SessionScheduleCell.swift */; };
+		AF2BFD2B21275FB3008E3E90 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BFD2A21275FB3008E3E90 /* SettingsTableView.swift */; };
+		AF62DE8D21213905002411F5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62DE8C21213905002411F5 /* TabBarController.swift */; };
+		AF7403611FE5E4F4000E0C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7403601FE5E4F4000E0C12 /* AppDelegate.swift */; };
+		AF7403661FE5E4F4000E0C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF7403641FE5E4F4000E0C12 /* Main.storyboard */; };
+		AF7403681FE5E4F4000E0C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF7403671FE5E4F4000E0C12 /* Assets.xcassets */; };
+		AF74036B1FE5E4F4000E0C12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF7403691FE5E4F4000E0C12 /* LaunchScreen.storyboard */; };
+		AF7403761FE5E4F4000E0C12 /* Pollux_REC_AttendanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7403751FE5E4F4000E0C12 /* Pollux_REC_AttendanceTests.swift */; };
+		AF7403811FE5E4F4000E0C12 /* Pollux_REC_AttendanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7403801FE5E4F4000E0C12 /* Pollux_REC_AttendanceUITests.swift */; };
+		AF861EDE2000411300E65F3B /* ClassInfoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF861EDD2000411300E65F3B /* ClassInfoPopupViewController.swift */; };
+		AF861EE02001E5BC00E65F3B /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF861EDF2001E5BC00E65F3B /* ScheduleViewController.swift */; };
+		C84B05F6F5F3D32DF833E9DF /* Pods_Pollux_REC_AttendanceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8043918ED9E95CA3595DDC /* Pods_Pollux_REC_AttendanceTests.framework */; };
+		F22A91042DBED3E42F577D10 /* Pods_Pollux_REC_AttendanceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1AEB766695990A5E8C9D387 /* Pods_Pollux_REC_AttendanceUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AF7403721FE5E4F4000E0C12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF7403551FE5E4F4000E0C12 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF74035C1FE5E4F4000E0C12;
+			remoteInfo = "Pollux REC Attendance";
+		};
+		AF74037D1FE5E4F4000E0C12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF7403551FE5E4F4000E0C12 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF74035C1FE5E4F4000E0C12;
+			remoteInfo = "Pollux REC Attendance";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0F3627A864307DE135A807DE /* Pods-Pollux REC Attendance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollux REC Attendance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pollux REC Attendance/Pods-Pollux REC Attendance.debug.xcconfig"; sourceTree = "<group>"; };
+		3E2977CDB0C5859BE611E9ED /* Pods-Pollux REC Attendance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollux REC Attendance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pollux REC Attendance/Pods-Pollux REC Attendance.release.xcconfig"; sourceTree = "<group>"; };
+		57BD7395134F3291EE778B6E /* Pods_Pollux_REC_Attendance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pollux_REC_Attendance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		687486882A2FCEE69752E0AC /* Pods-Pollux REC AttendanceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollux REC AttendanceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pollux REC AttendanceTests/Pods-Pollux REC AttendanceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7D8043918ED9E95CA3595DDC /* Pods_Pollux_REC_AttendanceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pollux_REC_AttendanceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86644BA3CB1FB88F9E42D4E5 /* Pods-Pollux REC AttendanceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollux REC AttendanceUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pollux REC AttendanceUITests/Pods-Pollux REC AttendanceUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AF0CF4341FE6093C00FE893A /* ClassTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableView.swift; sourceTree = "<group>"; };
+		AF0CF4361FE60A8B00FE893A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		AF0CF43A1FFAF87300FE893A /* StudentAttendanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAttendanceCell.swift; sourceTree = "<group>"; };
+		AF13796C212760BB00D04E2B /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = "Pollux REC Attendance/SignInViewController.swift"; sourceTree = SOURCE_ROOT; };
+		AF1AD96B20FC659C008F2950 /* SessionScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionScheduleCell.swift; sourceTree = "<group>"; };
+		AF2BFD2A21275FB3008E3E90 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
+		AF62DE8C21213905002411F5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = "/Users/ibrahimsurani/Desktop/OneDrive/Development/Pollux REC Attendance/Pollux REC Attendance/TabBarController.swift"; sourceTree = "<absolute>"; };
+		AF74035D1FE5E4F4000E0C12 /* Pollux REC Attendance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pollux REC Attendance.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF7403601FE5E4F4000E0C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AF7403651FE5E4F4000E0C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AF7403671FE5E4F4000E0C12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF74036A1FE5E4F4000E0C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AF74036C1FE5E4F4000E0C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF7403711FE5E4F4000E0C12 /* Pollux REC AttendanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pollux REC AttendanceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF7403751FE5E4F4000E0C12 /* Pollux_REC_AttendanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pollux_REC_AttendanceTests.swift; sourceTree = "<group>"; };
+		AF7403771FE5E4F4000E0C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF74037C1FE5E4F4000E0C12 /* Pollux REC AttendanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pollux REC AttendanceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF7403801FE5E4F4000E0C12 /* Pollux_REC_AttendanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pollux_REC_AttendanceUITests.swift; sourceTree = "<group>"; };
+		AF7403821FE5E4F4000E0C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF861EDD2000411300E65F3B /* ClassInfoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoPopupViewController.swift; sourceTree = "<group>"; };
+		AF861EDF2001E5BC00E65F3B /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		C1AEB766695990A5E8C9D387 /* Pods_Pollux_REC_AttendanceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pollux_REC_AttendanceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFF8AB468BD4BF902C30A0F0 /* Pods-Pollux REC AttendanceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollux REC AttendanceUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pollux REC AttendanceUITests/Pods-Pollux REC AttendanceUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D7C17DB57F7EFDC0F7F6598E /* Pods-Pollux REC AttendanceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollux REC AttendanceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pollux REC AttendanceTests/Pods-Pollux REC AttendanceTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF74035A1FE5E4F4000E0C12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D45D0914CF4DA9DF875D069 /* Pods_Pollux_REC_Attendance.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF74036E1FE5E4F4000E0C12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C84B05F6F5F3D32DF833E9DF /* Pods_Pollux_REC_AttendanceTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF7403791FE5E4F4000E0C12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F22A91042DBED3E42F577D10 /* Pods_Pollux_REC_AttendanceUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3608A2885AFC5628A9C4DC99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0F3627A864307DE135A807DE /* Pods-Pollux REC Attendance.debug.xcconfig */,
+				3E2977CDB0C5859BE611E9ED /* Pods-Pollux REC Attendance.release.xcconfig */,
+				687486882A2FCEE69752E0AC /* Pods-Pollux REC AttendanceTests.debug.xcconfig */,
+				D7C17DB57F7EFDC0F7F6598E /* Pods-Pollux REC AttendanceTests.release.xcconfig */,
+				CFF8AB468BD4BF902C30A0F0 /* Pods-Pollux REC AttendanceUITests.debug.xcconfig */,
+				86644BA3CB1FB88F9E42D4E5 /* Pods-Pollux REC AttendanceUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		69F866B7A849DBDD1D670F18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57BD7395134F3291EE778B6E /* Pods_Pollux_REC_Attendance.framework */,
+				7D8043918ED9E95CA3595DDC /* Pods_Pollux_REC_AttendanceTests.framework */,
+				C1AEB766695990A5E8C9D387 /* Pods_Pollux_REC_AttendanceUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF7403541FE5E4F4000E0C12 = {
+			isa = PBXGroup;
+			children = (
+				AF74035F1FE5E4F4000E0C12 /* Pollux REC Attendance */,
+				AF7403741FE5E4F4000E0C12 /* Pollux REC AttendanceTests */,
+				AF74037F1FE5E4F4000E0C12 /* Pollux REC AttendanceUITests */,
+				AF74035E1FE5E4F4000E0C12 /* Products */,
+				3608A2885AFC5628A9C4DC99 /* Pods */,
+				69F866B7A849DBDD1D670F18 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AF74035E1FE5E4F4000E0C12 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF74035D1FE5E4F4000E0C12 /* Pollux REC Attendance.app */,
+				AF7403711FE5E4F4000E0C12 /* Pollux REC AttendanceTests.xctest */,
+				AF74037C1FE5E4F4000E0C12 /* Pollux REC AttendanceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF74035F1FE5E4F4000E0C12 /* Pollux REC Attendance */ = {
+			isa = PBXGroup;
+			children = (
+				AF7403641FE5E4F4000E0C12 /* Main.storyboard */,
+				AF0CF4361FE60A8B00FE893A /* DataManager.swift */,
+				AF861F1E2012DB9B00E65F3B /* User Views */,
+				AF861F202012DBEE00E65F3B /* Other */,
+				AF7403671FE5E4F4000E0C12 /* Assets.xcassets */,
+				AF74036C1FE5E4F4000E0C12 /* Info.plist */,
+			);
+			path = "Pollux REC Attendance";
+			sourceTree = "<group>";
+		};
+		AF7403741FE5E4F4000E0C12 /* Pollux REC AttendanceTests */ = {
+			isa = PBXGroup;
+			children = (
+				AF7403751FE5E4F4000E0C12 /* Pollux_REC_AttendanceTests.swift */,
+				AF7403771FE5E4F4000E0C12 /* Info.plist */,
+			);
+			path = "Pollux REC AttendanceTests";
+			sourceTree = "<group>";
+		};
+		AF74037F1FE5E4F4000E0C12 /* Pollux REC AttendanceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AF7403801FE5E4F4000E0C12 /* Pollux_REC_AttendanceUITests.swift */,
+				AF7403821FE5E4F4000E0C12 /* Info.plist */,
+			);
+			path = "Pollux REC AttendanceUITests";
+			sourceTree = "<group>";
+		};
+		AF861F1E2012DB9B00E65F3B /* User Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF13796C212760BB00D04E2B /* SignInViewController.swift */,
+				AF0CF4341FE6093C00FE893A /* ClassTableView.swift */,
+				AF861EDF2001E5BC00E65F3B /* ScheduleViewController.swift */,
+				AF2BFD2A21275FB3008E3E90 /* SettingsTableView.swift */,
+			);
+			name = "User Views";
+			sourceTree = "<group>";
+		};
+		AF861F202012DBEE00E65F3B /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				AF62DE8C21213905002411F5 /* TabBarController.swift */,
+				AF7403601FE5E4F4000E0C12 /* AppDelegate.swift */,
+				AF861EDD2000411300E65F3B /* ClassInfoPopupViewController.swift */,
+				AF0CF43A1FFAF87300FE893A /* StudentAttendanceCell.swift */,
+				AF1AD96B20FC659C008F2950 /* SessionScheduleCell.swift */,
+				AF7403691FE5E4F4000E0C12 /* LaunchScreen.storyboard */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF74035C1FE5E4F4000E0C12 /* Pollux REC Attendance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF7403851FE5E4F4000E0C12 /* Build configuration list for PBXNativeTarget "Pollux REC Attendance" */;
+			buildPhases = (
+				F92BC823D0B8F53A5FADE3F6 /* [CP] Check Pods Manifest.lock */,
+				AF7403591FE5E4F4000E0C12 /* Sources */,
+				AF74035A1FE5E4F4000E0C12 /* Frameworks */,
+				AF74035B1FE5E4F4000E0C12 /* Resources */,
+				54800B18146985EE6D37A7B5 /* [CP] Embed Pods Frameworks */,
+				EF4E8B83ACB9EFA2376E42CC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pollux REC Attendance";
+			productName = "Pollux REC Attendance";
+			productReference = AF74035D1FE5E4F4000E0C12 /* Pollux REC Attendance.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AF7403701FE5E4F4000E0C12 /* Pollux REC AttendanceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF7403881FE5E4F4000E0C12 /* Build configuration list for PBXNativeTarget "Pollux REC AttendanceTests" */;
+			buildPhases = (
+				631495ABFE06ADFAD4645D5D /* [CP] Check Pods Manifest.lock */,
+				AF74036D1FE5E4F4000E0C12 /* Sources */,
+				AF74036E1FE5E4F4000E0C12 /* Frameworks */,
+				AF74036F1FE5E4F4000E0C12 /* Resources */,
+				C185EC4D5A425B935CACB171 /* [CP] Embed Pods Frameworks */,
+				B0AB506FE64EFCC45AE7778F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF7403731FE5E4F4000E0C12 /* PBXTargetDependency */,
+			);
+			name = "Pollux REC AttendanceTests";
+			productName = "Pollux REC AttendanceTests";
+			productReference = AF7403711FE5E4F4000E0C12 /* Pollux REC AttendanceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AF74037B1FE5E4F4000E0C12 /* Pollux REC AttendanceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF74038B1FE5E4F4000E0C12 /* Build configuration list for PBXNativeTarget "Pollux REC AttendanceUITests" */;
+			buildPhases = (
+				5F3588DFC27879CC7A55CDB8 /* [CP] Check Pods Manifest.lock */,
+				AF7403781FE5E4F4000E0C12 /* Sources */,
+				AF7403791FE5E4F4000E0C12 /* Frameworks */,
+				AF74037A1FE5E4F4000E0C12 /* Resources */,
+				88FC1859390EC7862D46C047 /* [CP] Embed Pods Frameworks */,
+				BCE47139C47671917566F47E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF74037E1FE5E4F4000E0C12 /* PBXTargetDependency */,
+			);
+			name = "Pollux REC AttendanceUITests";
+			productName = "Pollux REC AttendanceUITests";
+			productReference = AF74037C1FE5E4F4000E0C12 /* Pollux REC AttendanceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF7403551FE5E4F4000E0C12 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Ibrahim Surani";
+				TargetAttributes = {
+					AF74035C1FE5E4F4000E0C12 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					AF7403701FE5E4F4000E0C12 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AF74035C1FE5E4F4000E0C12;
+					};
+					AF74037B1FE5E4F4000E0C12 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AF74035C1FE5E4F4000E0C12;
+					};
+				};
+			};
+			buildConfigurationList = AF7403581FE5E4F4000E0C12 /* Build configuration list for PBXProject "Pollux REC Attendance" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AF7403541FE5E4F4000E0C12;
+			productRefGroup = AF74035E1FE5E4F4000E0C12 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF74035C1FE5E4F4000E0C12 /* Pollux REC Attendance */,
+				AF7403701FE5E4F4000E0C12 /* Pollux REC AttendanceTests */,
+				AF74037B1FE5E4F4000E0C12 /* Pollux REC AttendanceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF74035B1FE5E4F4000E0C12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF74036B1FE5E4F4000E0C12 /* LaunchScreen.storyboard in Resources */,
+				AF7403681FE5E4F4000E0C12 /* Assets.xcassets in Resources */,
+				AF7403661FE5E4F4000E0C12 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF74036F1FE5E4F4000E0C12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF74037A1FE5E4F4000E0C12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54800B18146985EE6D37A7B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pollux REC Attendance/Pods-Pollux REC Attendance-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AZTabBar/AZTabBar.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EasyNotificationBadge/EasyNotificationBadge.framework",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/LGButton/LGButton.framework",
+				"${BUILT_PRODUCTS_DIR}/MIBlurPopup/MIBlurPopup.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/McPicker/McPicker.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Simplicity/Simplicity.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TwicketSegmentedControl/TwicketSegmentedControl.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AZTabBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyNotificationBadge.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MIBlurPopup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/McPicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Simplicity.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwicketSegmentedControl.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pollux REC Attendance/Pods-Pollux REC Attendance-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F3588DFC27879CC7A55CDB8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pollux REC AttendanceUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		631495ABFE06ADFAD4645D5D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pollux REC AttendanceTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88FC1859390EC7862D46C047 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pollux REC AttendanceUITests/Pods-Pollux REC AttendanceUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pollux REC AttendanceUITests/Pods-Pollux REC AttendanceUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0AB506FE64EFCC45AE7778F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pollux REC AttendanceTests/Pods-Pollux REC AttendanceTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCE47139C47671917566F47E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pollux REC AttendanceUITests/Pods-Pollux REC AttendanceUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C185EC4D5A425B935CACB171 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pollux REC AttendanceTests/Pods-Pollux REC AttendanceTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pollux REC AttendanceTests/Pods-Pollux REC AttendanceTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF4E8B83ACB9EFA2376E42CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pollux REC Attendance/Pods-Pollux REC Attendance-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F92BC823D0B8F53A5FADE3F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pollux REC Attendance-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF7403591FE5E4F4000E0C12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF13796D212760BB00D04E2B /* SignInViewController.swift in Sources */,
+				AF861EDE2000411300E65F3B /* ClassInfoPopupViewController.swift in Sources */,
+				AF861EE02001E5BC00E65F3B /* ScheduleViewController.swift in Sources */,
+				AF62DE8D21213905002411F5 /* TabBarController.swift in Sources */,
+				AF0CF4371FE60A8B00FE893A /* DataManager.swift in Sources */,
+				AF1AD96C20FC659C008F2950 /* SessionScheduleCell.swift in Sources */,
+				AF7403611FE5E4F4000E0C12 /* AppDelegate.swift in Sources */,
+				AF0CF4351FE6093C00FE893A /* ClassTableView.swift in Sources */,
+				AF2BFD2B21275FB3008E3E90 /* SettingsTableView.swift in Sources */,
+				AF0CF43B1FFAF87300FE893A /* StudentAttendanceCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF74036D1FE5E4F4000E0C12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF7403761FE5E4F4000E0C12 /* Pollux_REC_AttendanceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF7403781FE5E4F4000E0C12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF7403811FE5E4F4000E0C12 /* Pollux_REC_AttendanceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AF7403731FE5E4F4000E0C12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF74035C1FE5E4F4000E0C12 /* Pollux REC Attendance */;
+			targetProxy = AF7403721FE5E4F4000E0C12 /* PBXContainerItemProxy */;
+		};
+		AF74037E1FE5E4F4000E0C12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF74035C1FE5E4F4000E0C12 /* Pollux REC Attendance */;
+			targetProxy = AF74037D1FE5E4F4000E0C12 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AF7403641FE5E4F4000E0C12 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF7403651FE5E4F4000E0C12 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AF7403691FE5E4F4000E0C12 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF74036A1FE5E4F4000E0C12 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AF7403831FE5E4F4000E0C12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AF7403841FE5E4F4000E0C12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AF7403861FE5E4F4000E0C12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F3627A864307DE135A807DE /* Pods-Pollux REC Attendance.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRS3658ZTC;
+				IBSC_WARNINGS = NO;
+				INFOPLIST_FILE = "Pollux REC Attendance/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Faiz.Pollux-REC-Attendance";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AF7403871FE5E4F4000E0C12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E2977CDB0C5859BE611E9ED /* Pods-Pollux REC Attendance.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRS3658ZTC;
+				IBSC_WARNINGS = NO;
+				INFOPLIST_FILE = "Pollux REC Attendance/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Faiz.Pollux-REC-Attendance";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AF7403891FE5E4F4000E0C12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 687486882A2FCEE69752E0AC /* Pods-Pollux REC AttendanceTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Pollux REC AttendanceTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Faiz.Pollux-REC-AttendanceTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pollux REC Attendance.app/Pollux REC Attendance";
+			};
+			name = Debug;
+		};
+		AF74038A1FE5E4F4000E0C12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7C17DB57F7EFDC0F7F6598E /* Pods-Pollux REC AttendanceTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Pollux REC AttendanceTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Faiz.Pollux-REC-AttendanceTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pollux REC Attendance.app/Pollux REC Attendance";
+			};
+			name = Release;
+		};
+		AF74038C1FE5E4F4000E0C12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFF8AB468BD4BF902C30A0F0 /* Pods-Pollux REC AttendanceUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Pollux REC AttendanceUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Faiz.Pollux-REC-AttendanceUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pollux REC Attendance";
+			};
+			name = Debug;
+		};
+		AF74038D1FE5E4F4000E0C12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86644BA3CB1FB88F9E42D4E5 /* Pods-Pollux REC AttendanceUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Pollux REC AttendanceUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Faiz.Pollux-REC-AttendanceUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pollux REC Attendance";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF7403581FE5E4F4000E0C12 /* Build configuration list for PBXProject "Pollux REC Attendance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF7403831FE5E4F4000E0C12 /* Debug */,
+				AF7403841FE5E4F4000E0C12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF7403851FE5E4F4000E0C12 /* Build configuration list for PBXNativeTarget "Pollux REC Attendance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF7403861FE5E4F4000E0C12 /* Debug */,
+				AF7403871FE5E4F4000E0C12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF7403881FE5E4F4000E0C12 /* Build configuration list for PBXNativeTarget "Pollux REC AttendanceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF7403891FE5E4F4000E0C12 /* Debug */,
+				AF74038A1FE5E4F4000E0C12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF74038B1FE5E4F4000E0C12 /* Build configuration list for PBXNativeTarget "Pollux REC AttendanceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF74038C1FE5E4F4000E0C12 /* Debug */,
+				AF74038D1FE5E4F4000E0C12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF7403551FE5E4F4000E0C12 /* Project object */;
+}

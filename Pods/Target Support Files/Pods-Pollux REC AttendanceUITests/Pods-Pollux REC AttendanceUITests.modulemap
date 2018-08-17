@@ -1,0 +1,6 @@
+framework module Pods_Pollux_REC_AttendanceUITests {
+  umbrella header "Pods-Pollux REC AttendanceUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
