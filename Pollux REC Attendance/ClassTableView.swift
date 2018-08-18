@@ -12,12 +12,14 @@ import McPicker
 import MIBlurPopup
 import NotificationBannerSwift
 
+var currentSessionId: Int?
+
 class ClassTableView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var reasonArray = [String]()
     var currentSession = SessionAttendance()
     var students = [StudentAttendance]()
-    public var sessionId: Int?
+    
     private let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var classTitle: UINavigationItem!
@@ -57,10 +59,10 @@ class ClassTableView: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     private func getSession(completion: @escaping (Error?) -> Void) {
-        if sessionId == nil {
-            sessionId = 6
+        if currentSessionId == nil {
+            currentSessionId = 6
         }
-        DataGetter.getSessionData(sessionId: sessionId!) { sessionData, error in
+        DataGetter.getSessionData(sessionId: currentSessionId!) { sessionData, error in
             if let sessionAttendance = sessionData {
                 self.currentSession = sessionAttendance
                 self.students = self.currentSession.students
@@ -109,12 +111,12 @@ extension ClassTableView {
         cell.studentNameLabel.text = studentInCell.name
         let statusId = students[indexPath.row].attendanceStatusId
         
-        cell.twicketAttendanceSegControl.doAnimate = false
+        cell.twicketAttendanceSegControl.animationDuration = 0
         cell.twicketAttendanceSegControl.removeTarget(self, action: #selector(self.segmentChanged(sender:)), for: .valueChanged)
         if statusId == 1 || statusId == 2 || statusId == 3 {
             cell.twicketAttendanceSegControl.move(to: statusId)
         }
-        cell.twicketAttendanceSegControl.doAnimate = true
+        cell.twicketAttendanceSegControl.animationDuration = 0.2
         
         if cell.twicketAttendanceSegControl.selectedSegmentIndex <= 1 {
             cell.reasonTextField.isHidden = true

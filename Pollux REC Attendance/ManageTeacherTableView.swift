@@ -1,5 +1,5 @@
 //
-//  SettingsTableView.swift
+//  ManageTeacherTableView.swift
 //  Pollux REC Attendance
 //
 //  Created by Ibrahim Surani on 8/17/18.
@@ -8,18 +8,17 @@
 
 import UIKit
 
-class SettingsTableView: UITableViewController {
+class ManageTeacherTableView: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Add Icon"), style: .plain, target: self, action: #selector(addButton(sender:)))
     }
 
+    @objc func addButton(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "manageTeacherToAddForm", sender: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,31 +28,23 @@ class SettingsTableView: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        if indexPath.elementsEqual(IndexPath(item: 0, section: 0)) {
-            cell.accessoryType = .disclosureIndicator
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.elementsEqual(IndexPath(item: 0, section: 0)) {
-            performSegue(withIdentifier: "settingsToManageTeachers", sender: self)
-        }
-    }
+    */
 
     /*
     // Override to support conditional editing of the table view.

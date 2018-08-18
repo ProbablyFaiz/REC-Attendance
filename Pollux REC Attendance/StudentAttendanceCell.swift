@@ -27,14 +27,11 @@ class StudentAttendanceCell: UITableViewCell, UITextFieldDelegate {
         twicketAttendanceSegControl.backgroundColor = UIColor.clear
         twicketAttendanceSegControl.setSegmentItems(attendanceTypes)
         twicketAttendanceSegControl.sliderBackgroundColor = UIColor.hexStringToUIColor(hex: "46B2FF")
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
-    
 }
 
 extension StudentAttendanceCell: TwicketSegmentedControlDelegate {

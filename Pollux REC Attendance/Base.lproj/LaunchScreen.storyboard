@@ -17,32 +17,8 @@
                     <view key="view" contentMode="scaleToFill" id="aYy-yU-gdN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REC Attendance" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLt-LF-Ty5">
-                                <rect key="frame" x="88" y="208" width="198" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="4QR-nG-23D"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LAHQ Newsletter Logo" translatesAutoresizingMaskIntoConstraints="NO" id="AHG-Ad-XUl">
-                                <rect key="frame" x="88" y="82" width="199" height="125"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="jOr-dP-rCa"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" red="0.27431338799999999" green="0.69953684689999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="AHG-Ad-XUl" firstAttribute="top" secondItem="E4s-xA-By7" secondAttribute="top" constant="62" id="Fuh-zl-qH3"/>
-                            <constraint firstItem="CLt-LF-Ty5" firstAttribute="leading" secondItem="AHG-Ad-XUl" secondAttribute="leading" id="JYz-v9-zgm"/>
-                            <constraint firstItem="E4s-xA-By7" firstAttribute="trailing" secondItem="AHG-Ad-XUl" secondAttribute="trailing" constant="88" id="Lld-55-Hb5"/>
-                            <constraint firstItem="AHG-Ad-XUl" firstAttribute="leading" secondItem="E4s-xA-By7" secondAttribute="leading" constant="88" id="NHc-S2-0yF"/>
-                            <constraint firstItem="CLt-LF-Ty5" firstAttribute="top" secondItem="E4s-xA-By7" secondAttribute="top" constant="188" id="c0q-hx-T9r"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="E4s-xA-By7"/>
                     </view>
                 </viewController>
@@ -51,7 +27,4 @@
             <point key="canvasLocation" x="-655.20000000000005" y="304.4977511244378"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="LAHQ Newsletter Logo" width="240" height="159"/>
-    </resources>
 </document>

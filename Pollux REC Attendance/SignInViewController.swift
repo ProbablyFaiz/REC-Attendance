@@ -16,6 +16,8 @@ var currentUser = User()
 class SignInViewController: UIViewController {
     
     @IBOutlet weak var googleSignIn: UIButton!
+    @IBOutlet weak var lahqPicture: UIImageView!
+    @IBOutlet weak var recAttendanceLabel: UILabel!
     
     @IBAction func googleSignIn(_ sender: Any) {
         Simplicity.login(Google()) { accessToken, error in
@@ -25,7 +27,6 @@ class SignInViewController: UIViewController {
                         currentUser = user!
                         let defaults = UserDefaults.standard
                         defaults.set(currentUser.bearerToken, forKey: "BearerToken")
-                        
                         self.performSegue(withIdentifier: "signInToTabController", sender: nil)
                     }
                 }
@@ -35,6 +36,12 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.googleSignIn.alpha =  0
+        self.lahqPicture.alpha = 0
+        self.recAttendanceLabel.alpha = 0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         let defaults = UserDefaults()
         if let storedToken = defaults.string(forKey: "BearerToken") {
             currentUser.bearerToken = storedToken
@@ -42,11 +49,12 @@ class SignInViewController: UIViewController {
             self.performSegue(withIdentifier: "signInToTabController", sender: nil)
         }
         
-        self.googleSignIn.alpha =  0
+        
         UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.googleSignIn.alpha = 1
+            self.lahqPicture.alpha = 1
+            self.recAttendanceLabel.alpha = 1
         }) 
-        
     }
     
     override func didReceiveMemoryWarning() {

@@ -22,7 +22,7 @@ class TabBarController: UIViewController {
         tabController.delegate = self
         
         let scheduleController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScheduleViewController")
-        let attendanceController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ClassTableView")
+        let attendanceController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ClassTableViewNavController")
         let settingsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsTableViewNavController")
         tabController.setViewController(scheduleController, atIndex: 0)
         tabController.setViewController(attendanceController, atIndex: 1)
