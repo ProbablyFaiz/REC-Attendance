@@ -45,7 +45,6 @@ class SignInViewController: UIViewController {
         let defaults = UserDefaults()
         if let storedToken = defaults.string(forKey: "BearerToken") {
             currentUser.bearerToken = storedToken
-            print(storedToken)
             self.performSegue(withIdentifier: "signInToTabController", sender: nil)
         }
         

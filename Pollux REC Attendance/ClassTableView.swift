@@ -154,8 +154,7 @@ extension ClassTableView: UITextFieldDelegate {
         
         let mcp = McPicker(data: reasonList)
         mcp.pickerSelectRowsForComponents = [0: [students[textField.tag].reasonId : false]]
-        mcp.showAsPopover(fromViewController: self, sourceView: tableView.cellForRow(at: IndexPath(row: textField.tag, section: 0)), sourceRect: nil, barButtonItem: nil, cancelHandler: { () -> Void in
-        }, doneHandler: { (selections: [Int : String]) -> Void in
+        mcp.showAsPopover(fromViewController: self, sourceView: tableView.cellForRow(at: IndexPath(row: textField.tag, section: 0)), sourceRect: nil, barButtonItem: nil, doneHandler: { (selections: [Int : String]) -> Void in
             if let name = selections[0] {
                 textField.text = name
                 let reasonId = self.reasonArray.index(of: name)

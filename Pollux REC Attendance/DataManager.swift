@@ -39,7 +39,7 @@ class DataGetter {
     
     static func getSessionList(teacherId: Int, monthAndYear: String, completion: @escaping ([SessionAttendance]?, Error?) -> Void) {
         var sessionList = [SessionAttendance]()
-        let requestUrl = baseURL + "sessionlist/" + String(teacherId) + "&month=" + monthAndYear
+        let requestUrl = baseURL + "sessionlist/" + monthAndYear
         var sessionListJSON = JSON()
         
         CustomManager.manager.request(requestUrl, method: .get).validate().responseJSON { response in
@@ -148,7 +148,7 @@ class Authentication {
                     let json = JSON(value)
                     completion(self.parseJson(json: json, headers: response.response?.allHeaderFields), nil)
                 case .failure(let error):
-                      completion(nil, error)
+                    completion(nil, error)
                 }
         }
     }
@@ -165,9 +165,8 @@ class Authentication {
         }
         user.emailAddress = json["emailAddress"].string ?? ""
         user.firstName = json["firstName"].string ?? ""
-        user.middleName = json["middleName"].string ?? ""
         user.lastName = json["lastName"].string ?? ""
-        user.teacherId = json["teacherId"].int ?? -1
+        user.teacherId = json["teacherId"].int ?? 0
         return user
     }
 }
@@ -176,17 +175,44 @@ class User {
     var existsOnServer: Bool!
     var emailAddress = ""
     var bearerToken = ""
-    var teacherId = -1
+    var teacherId = 0
     var firstName = ""
-    var middleName = ""
     var lastName = ""
 }
 
+class Teacher: Codable {
+    var firstName = ""
+    var lastName = ""
+    var emailAddress = ""
+    var classesTaught = [ClassTerm]()
+    var isAdministrator = false
+    
+    enum CodingKeys: String, CodingKey {
+        case firstName
+        case lastName
+        case emailAddress
+        case classesTaught
+        case isAdministrator
+    }
+}
+
+class ClassTerm: Codable {
+    var classTermId = 0
+    var name = "Class (Term)"
+    var classDescription = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case classTermId
+        case name
+        case classDescription
+    }
+}
+
 class SessionAttendance: Codable {
-    public var students = [StudentAttendance]()
-    public var classInfo = ClassInfo()
-    public var sessionId = 0
-    public var date = Date()
+    var students = [StudentAttendance]()
+    var classInfo = ClassInfo()
+    var sessionId = 0
+    var date = Date()
     
     enum CodingKeys: String, CodingKey {
         case classInfo
@@ -197,10 +223,10 @@ class SessionAttendance: Codable {
 }
 
 class StudentAttendance: Codable {
-    public var name = ""
-    public var studentId = 0
-    public var attendanceStatusId = 0
-    public var reasonId = 0
+    var name = ""
+    var studentId = 0
+    var attendanceStatusId = 0
+    var reasonId = 0
     
     enum CodingKeys: String, CodingKey {
         case name = "studentName"
@@ -211,11 +237,11 @@ class StudentAttendance: Codable {
 }
 
 class ClassInfo: Codable {
-    public var className = ""
-    public var classId = 0
-    public var classDescription = ""
-    public var recName = ""
-    public var primaryTeacherName = ""
+    var className = ""
+    var classId = 0
+    var classDescription = ""
+    var recName = ""
+    var primaryTeacherName = ""
     
     enum CodingKeys: String, CodingKey {
         case className
@@ -227,10 +253,9 @@ class ClassInfo: Codable {
 }
 
 class CustomManager: SessionManager {
-    static public let manager = CustomManager.generateManager()
+    static let manager = CustomManager.generateManager()
     class func generateManager()-> CustomManager {
         var defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
-        var test = currentUser
         defaultHeaders["Authorization"] = currentUser.bearerToken
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = defaultHeaders
