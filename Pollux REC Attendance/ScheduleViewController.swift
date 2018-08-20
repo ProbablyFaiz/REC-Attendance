@@ -28,7 +28,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     func populateSessionList(month: Date) {
         let monthString = dateToMonthString(date: month)
-        DataGetter.getSessionList(teacherId: currentUser.teacherId, monthAndYear: monthString) { sessionList, error in
+        SessionDataManager.getSessionList(monthAndYear: monthString) { sessionList, error in
             if sessionList != nil {
                 self.sessionList = sessionList!
                 self.sessionList.sort(by: { $0.date.compare($1.date) == .orderedAscending })

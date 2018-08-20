@@ -22,11 +22,12 @@ class SignInViewController: UIViewController {
     @IBAction func googleSignIn(_ sender: Any) {
         Simplicity.login(Google()) { accessToken, error in
             if error == nil {
-                Authentication.validateLoginAndGetInfo(accessToken: accessToken!) { user, error in
+                AuthenticationManager.validateLoginAndGetInfo(accessToken: accessToken!) { user, error in
                     if error == nil {
                         currentUser = user!
                         let defaults = UserDefaults.standard
-                        defaults.set(currentUser.bearerToken, forKey: "BearerToken")
+                        defaults.set(user!.bearerToken, forKey: "BearerToken")
+                        CustomManager.manager = CustomManager.generateManager()
                         self.performSegue(withIdentifier: "signInToTabController", sender: nil)
                     }
                 }

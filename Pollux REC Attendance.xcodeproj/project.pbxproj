@@ -16,6 +16,9 @@
 		AF1AD96C20FC659C008F2950 /* SessionScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1AD96B20FC659C008F2950 /* SessionScheduleCell.swift */; };
 		AF2BFD2B21275FB3008E3E90 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BFD2A21275FB3008E3E90 /* SettingsTableView.swift */; };
 		AF4C96DA2127F2D0005D41C8 /* ManageTeacherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C96D92127F2D0005D41C8 /* ManageTeacherCell.swift */; };
+		AF4C96DC2127F46E005D41C8 /* SelectClassesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C96DB2127F46E005D41C8 /* SelectClassesTableView.swift */; };
+		AF4C96DE2127F4D9005D41C8 /* SelectClassesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C96DD2127F4D9005D41C8 /* SelectClassesCell.swift */; };
+		AF4C96E021288237005D41C8 /* AdminViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4C96DF21288237005D41C8 /* AdminViews.storyboard */; };
 		AF62DE8D21213905002411F5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62DE8C21213905002411F5 /* TabBarController.swift */; };
 		AF7403611FE5E4F4000E0C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7403601FE5E4F4000E0C12 /* AppDelegate.swift */; };
 		AF7403661FE5E4F4000E0C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF7403641FE5E4F4000E0C12 /* Main.storyboard */; };
@@ -63,6 +66,9 @@
 		AF1AD96B20FC659C008F2950 /* SessionScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionScheduleCell.swift; sourceTree = "<group>"; };
 		AF2BFD2A21275FB3008E3E90 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
 		AF4C96D92127F2D0005D41C8 /* ManageTeacherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTeacherCell.swift; sourceTree = "<group>"; };
+		AF4C96DB2127F46E005D41C8 /* SelectClassesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClassesTableView.swift; sourceTree = "<group>"; };
+		AF4C96DD2127F4D9005D41C8 /* SelectClassesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClassesCell.swift; sourceTree = "<group>"; };
+		AF4C96DF21288237005D41C8 /* AdminViews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminViews.storyboard; sourceTree = "<group>"; };
 		AF62DE8C21213905002411F5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = "/Users/ibrahimsurani/Desktop/OneDrive/Development/Pollux REC Attendance/Pollux REC Attendance/TabBarController.swift"; sourceTree = "<absolute>"; };
 		AF74035D1FE5E4F4000E0C12 /* Attendance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attendance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7403601FE5E4F4000E0C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 				AF0CF43A1FFAF87300FE893A /* StudentAttendanceCell.swift */,
 				AF1AD96B20FC659C008F2950 /* SessionScheduleCell.swift */,
 				AF4C96D92127F2D0005D41C8 /* ManageTeacherCell.swift */,
+				AF4C96DD2127F4D9005D41C8 /* SelectClassesCell.swift */,
 			);
 			name = "Table \U0010Cells";
 			sourceTree = "<group>";
@@ -224,8 +231,10 @@
 		AFCD2C9021276A63004FE7FA /* Admin Views */ = {
 			isa = PBXGroup;
 			children = (
+				AF4C96DF21288237005D41C8 /* AdminViews.storyboard */,
 				AF03C20E2127715D00D0831A /* ManageTeacherTableView.swift */,
 				AF03C21021279C0E00D0831A /* AdminAddTeacherFormView.swift */,
+				AF4C96DB2127F46E005D41C8 /* SelectClassesTableView.swift */,
 			);
 			name = "Admin Views";
 			sourceTree = "<group>";
@@ -346,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF4C96E021288237005D41C8 /* AdminViews.storyboard in Resources */,
 				AF74036B1FE5E4F4000E0C12 /* LaunchScreen.storyboard in Resources */,
 				AF7403681FE5E4F4000E0C12 /* Assets.xcassets in Resources */,
 				AF7403661FE5E4F4000E0C12 /* Main.storyboard in Resources */,
@@ -557,10 +567,12 @@
 				AF861EE02001E5BC00E65F3B /* ScheduleViewController.swift in Sources */,
 				AF62DE8D21213905002411F5 /* TabBarController.swift in Sources */,
 				AF0CF4371FE60A8B00FE893A /* DataManager.swift in Sources */,
+				AF4C96DC2127F46E005D41C8 /* SelectClassesTableView.swift in Sources */,
 				AF1AD96C20FC659C008F2950 /* SessionScheduleCell.swift in Sources */,
 				AF03C20F2127715D00D0831A /* ManageTeacherTableView.swift in Sources */,
 				AF03C21121279C0E00D0831A /* AdminAddTeacherFormView.swift in Sources */,
 				AF7403611FE5E4F4000E0C12 /* AppDelegate.swift in Sources */,
+				AF4C96DE2127F4D9005D41C8 /* SelectClassesCell.swift in Sources */,
 				AF0CF4351FE6093C00FE893A /* ClassTableView.swift in Sources */,
 				AF2BFD2B21275FB3008E3E90 /* SettingsTableView.swift in Sources */,
 				AF0CF43B1FFAF87300FE893A /* StudentAttendanceCell.swift in Sources */,

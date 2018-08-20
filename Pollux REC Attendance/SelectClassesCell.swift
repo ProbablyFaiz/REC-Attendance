@@ -1,5 +1,5 @@
 //
-//  ManageTeacherCell.swift
+//  SelectClassesCell.swift
 //  Pollux REC Attendance
 //
 //  Created by Ibrahim Surani on 8/17/18.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ManageTeacherCell: UITableViewCell {
+class SelectClassesCell: UITableViewCell {
 
-    @IBOutlet weak var teacherNameLabel: UILabel!
+    @IBOutlet weak var classTermNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

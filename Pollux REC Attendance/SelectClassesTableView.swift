@@ -1,5 +1,5 @@
 //
-//  SettingsTableView.swift
+//  SelectClassesTableView.swift
 //  Pollux REC Attendance
 //
 //  Created by Ibrahim Surani on 8/17/18.
@@ -8,16 +8,13 @@
 
 import UIKit
 
-class SettingsTableView: UITableViewController {
+class SelectClassesTableView: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.allowsMultipleSelectionDuringEditing = true
+        tableView.setEditing(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,55 +26,24 @@ class SettingsTableView: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 4
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        if indexPath.elementsEqual(IndexPath(item: 0, section: 0)) {
-            cell.accessoryType = .disclosureIndicator
-        }
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "selectClassesCell", for: indexPath)
+        
         // Configure the cell...
 
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.elementsEqual(IndexPath(item: 0, section: 0)) {
-            performSegue(withIdentifier: "settingsToManageTeachers", sender: nil)
-        }
-        if indexPath.elementsEqual(IndexPath(item: 0, section: 1)) {
-            let alertController = UIAlertController(title: "Sign Out", message: "Are you sure you want to sign out?", preferredStyle: .alert)
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
-            alertController.addAction(cancelAction)
-            
-            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                self.signOut()
-            }
-            alertController.addAction(OKAction)
-            
-            self.present(alertController, animated: true) {
-                // ...
-            }
-        }
-    }
-    
-    func signOut() {
-        UserDefaults.standard.set(nil, forKey: "BearerToken")
-        currentUser = User()
-        currentSessionId = nil
-        view.window!.rootViewController?.dismiss(animated: true, completion: nil)
-        
-    }
-    
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

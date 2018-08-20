@@ -14,21 +14,17 @@ import NotificationBannerSwift
 
 var currentSessionId: Int?
 
-class ClassTableView: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ClassTableView: UITableViewController {
     
     var reasonArray = [String]()
     var currentSession = SessionAttendance()
     var students = [StudentAttendance]()
     
-    private let refreshControl = UIRefreshControl()
-    
     @IBOutlet weak var classTitle: UINavigationItem!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
-    @IBOutlet weak var tableView: UITableView!
     
     @IBAction func saveBarButton(_ sender: Any) {
-        let webServiceSave = DataSender()
-        webServiceSave.saveSessionData(session: getSessionForSaving()) { error in }
+        SessionDataManager.saveSessionData(session: getSessionForSaving()) { error in }
         saveBarButton.isEnabled = false
     }
     
@@ -51,7 +47,8 @@ class ClassTableView: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refreshTable(sender:)), for: .valueChanged)
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: #selector(refreshTable(sender:)), for: .valueChanged)
         
         reasonArray = ["Pick Reason", "None Given", "Academic", "Sports", "Extracurriculur", "Illness", "Other"]
         saveBarButton.isEnabled = false
@@ -62,7 +59,7 @@ class ClassTableView: UIViewController, UITableViewDataSource, UITableViewDelega
         if currentSessionId == nil {
             currentSessionId = 6
         }
-        DataGetter.getSessionData(sessionId: currentSessionId!) { sessionData, error in
+        SessionDataManager.getSessionData(sessionId: currentSessionId!) { sessionData, error in
             if let sessionAttendance = sessionData {
                 self.currentSession = sessionAttendance
                 self.students = self.currentSession.students
@@ -100,7 +97,7 @@ class ClassTableView: UIViewController, UITableViewDataSource, UITableViewDelega
 
 extension ClassTableView {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "StudentAttendanceCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? StudentAttendanceCell  else {
@@ -133,12 +130,16 @@ extension ClassTableView {
         return cell
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return students.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -175,7 +176,7 @@ extension ClassTableView: UITextFieldDelegate {
     
     @objc func refreshTable(sender: UIRefreshControl) {
         getSession { error in
-            self.refreshControl.endRefreshing()
+            self.refreshControl!.endRefreshing()
             if (error != nil) {
                 print("Refresh failed")
             }

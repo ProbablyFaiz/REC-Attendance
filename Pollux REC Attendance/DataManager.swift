@@ -15,7 +15,11 @@ import NotificationBannerSwift
 
 let baseURL = "https://recwebapi20180817111320.azurewebsites.net/api/rec/"
 
-class DataGetter {
+class SessionDataManager {
+    
+    static func getNearestSessionId(teacherId: Int, completion: @escaping (Int?, Error?) -> Void) {
+        
+    }
     
     static func getSessionData(sessionId: Int, completion: @escaping (SessionAttendance?, Error?) -> Void) {
         
@@ -37,9 +41,9 @@ class DataGetter {
         }
     }
     
-    static func getSessionList(teacherId: Int, monthAndYear: String, completion: @escaping ([SessionAttendance]?, Error?) -> Void) {
+    static func getSessionList(monthAndYear: String, completion: @escaping ([SessionAttendance]?, Error?) -> Void) {
         var sessionList = [SessionAttendance]()
-        let requestUrl = baseURL + "sessionlist/" + monthAndYear
+        let requestUrl = baseURL + "sessionlist/" + String(currentUser.teacherId) + "&month=" + monthAndYear
         var sessionListJSON = JSON()
         
         CustomManager.manager.request(requestUrl, method: .get).validate().responseJSON { response in
@@ -99,10 +103,7 @@ class DataGetter {
         return date
     }
     
-}
-
-class DataSender {
-    func saveSessionData(session: SessionAttendance, completion: @escaping (Error?) -> Void) {
+    static func saveSessionData(session: SessionAttendance, completion: @escaping (Error?) -> Void) {
         var sessionData = Data()
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
@@ -134,7 +135,7 @@ class DataSender {
     }
 }
 
-class Authentication {
+class AuthenticationManager {
     static func validateLoginAndGetInfo(accessToken: String, completion: @escaping (User?, Error?) -> Void) {
         let headers: HTTPHeaders = [
             "Authorization": accessToken,
@@ -171,13 +172,67 @@ class Authentication {
     }
 }
 
+class AdminDataManager {
+    
+    static func getTeacher(teacherId: Int, completion: @escaping (Teacher?, Error?) -> Void) {
+        let requestUrl = baseURL + "teacher/" + String(teacherId)
+        
+        CustomManager.manager.request(requestUrl, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let teacherJson = JSON(value)
+                print("JSON: \(teacherJson)")
+                completion(parseTeacherJson(teacherJson), nil)
+            case .failure(let error):
+                print(error)
+                completion(nil, error)
+            }
+        }
+    }
+    
+    fileprivate static func parseTeacherJson(_ teacherJson: JSON) -> Teacher {
+        let teacher = Teacher()
+        teacher.firstName = teacherJson["FirstName"].stringValue
+        teacher.lastName = teacherJson["LastName"].stringValue
+        teacher.emailAddress = teacherJson["EmailAddress"].stringValue
+        teacher.isAdministrator = teacherJson["IsAdministrator"].bool ?? false
+        teacher.isDisabled = teacherJson["IsDisabled"].bool ?? false
+        
+        for (_, jsonClassTerm) in teacherJson["ClassesTaught"] {
+            let classTerm = ClassTerm()
+            classTerm.name = jsonClassTerm["Name"].stringValue
+            classTerm.classTermId = jsonClassTerm["ClassTermId"].int ?? 0
+            teacher.classesTaught.append(classTerm)
+        }
+        
+        return teacher
+    }
+    
+    static func getTeacherList(recId: Int, completion: @escaping ([Teacher]?, Error?) -> Void) {
+        
+    }
+    
+    static func getClassTermList(recId: Int, completion: @escaping ([ClassTerm]?, Error?) -> Void) {
+        
+    }
+    
+    static func checkIfEmailIsDuplicate(emailAddress: String, completion: @escaping (Bool?, Error?) -> Void) {
+        
+    }
+    
+    static func saveTeacher(teacherToSave: Teacher, completion: @escaping (Error?) -> Void) {
+        
+    }
+}
+
 class User {
     var existsOnServer: Bool!
     var emailAddress = ""
     var bearerToken = ""
-    var teacherId = 0
     var firstName = ""
     var lastName = ""
+    var teacherId = 0
+    var recId = 0
 }
 
 class Teacher: Codable {
@@ -186,6 +241,7 @@ class Teacher: Codable {
     var emailAddress = ""
     var classesTaught = [ClassTerm]()
     var isAdministrator = false
+    var isDisabled = false
     
     enum CodingKeys: String, CodingKey {
         case firstName
@@ -253,7 +309,7 @@ class ClassInfo: Codable {
 }
 
 class CustomManager: SessionManager {
-    static let manager = CustomManager.generateManager()
+    static var manager = CustomManager.generateManager()
     class func generateManager()-> CustomManager {
         var defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
         defaultHeaders["Authorization"] = currentUser.bearerToken

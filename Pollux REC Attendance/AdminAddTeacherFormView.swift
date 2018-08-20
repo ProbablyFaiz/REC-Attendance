@@ -10,44 +10,60 @@ import UIKit
 import Former
 
 class AdminAddTeacherFormView: FormViewController {
-    var teacherToCreate = Teacher()
+    var teacherToCreateOrEdit = Teacher()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveBarButton(sender:)))
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        formerSetup()
+    }
+    
+    func formerSetup() {
         let teacherFirstName = TextFieldRowFormer<FormTextFieldCell>().configure {
             $0.placeholder = "First Name"
+            $0.text = teacherToCreateOrEdit.firstName
             }.onTextChanged { firstName in
-                self.teacherToCreate.firstName = firstName
+                self.teacherToCreateOrEdit.firstName = firstName
         }
         let teacherLastName = TextFieldRowFormer<FormTextFieldCell>().configure {
             $0.placeholder = "Last Name"
+            $0.text = teacherToCreateOrEdit.lastName
             }.onTextChanged { lastName in
-                self.teacherToCreate.lastName = lastName
+                self.teacherToCreateOrEdit.lastName = lastName
         }
         let teacherEmailAddress = TextFieldRowFormer<FormTextFieldCell>().configure {
             $0.placeholder = "Email Address"
+            $0.text = teacherToCreateOrEdit.emailAddress
             }.onTextChanged { emailAddress in
-                self.teacherToCreate.emailAddress = emailAddress
+                self.teacherToCreateOrEdit.emailAddress = emailAddress
         }
         let personalInfoSection = SectionFormer(rowFormer: teacherFirstName, teacherLastName, teacherEmailAddress).set(headerViewFormer: createHeader("Personal Info"))
         former.append(sectionFormer: personalInfoSection)
         
-        let administratorSwitch = SwitchRowFormer<FormSwitchCell>() {
-            $0.titleLabel.text = "Administrator"
-            }.onSwitchChanged { isAdministrator in
-                self.teacherToCreate.isAdministrator = isAdministrator
-        }
         let classSelectionRow = LabelRowFormer<FormLabelCellWithAccessory>().configure { row in
-            row.text = "Classes Taught"
+            row.text = "Classes Taught - " + String(teacherToCreateOrEdit.classesTaught.count) + " Selected"
             }.onSelected { row in
-                
+                self.performSegue(withIdentifier: "addTeacherToSelectClass", sender: self)
         }
-        let section2 = SectionFormer(rowFormer: administratorSwitch, classSelectionRow).set(headerViewFormer: createHeader("Permissions"))
+        let administratorSwitch = SwitchRowFormer<FormSwitchCell>() {
+            $0.titleLabel.text = "Administrator?"
+            $0.switchButton.isOn = self.teacherToCreateOrEdit.isAdministrator
+            }.onSwitchChanged { isAdministrator in
+                self.teacherToCreateOrEdit.isAdministrator = isAdministrator
+        }
+        let disableSwitch = SwitchRowFormer<FormSwitchCell>() {
+            $0.titleLabel.text = "Disable Account?"
+            $0.switchButton.isOn = self.teacherToCreateOrEdit.isDisabled
+            }.onSwitchChanged { isDisabled in
+                self.teacherToCreateOrEdit.isDisabled = isDisabled
+        }
+        let section2 = SectionFormer(rowFormer: administratorSwitch, disableSwitch, classSelectionRow).set(headerViewFormer: createHeader("Permissions"))
         former.append(sectionFormer: section2)
-        
-        
     }
     
     let createHeader: ((String) -> ViewFormer) = { text in
@@ -59,7 +75,7 @@ class AdminAddTeacherFormView: FormViewController {
     }
     
     @objc func saveBarButton(sender: UIBarButtonItem) {
-        
+        //Check if email is duplicate
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,6 +83,7 @@ class AdminAddTeacherFormView: FormViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
 }
 
