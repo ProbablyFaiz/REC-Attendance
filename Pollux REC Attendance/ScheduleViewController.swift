@@ -77,11 +77,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sessionId = sessionList[indexPath.row].sessionId
-        let attendanceController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ClassTableView") as! ClassTableView
         currentSessionId = sessionId
-        currentTabBar?.setViewController(attendanceController, atIndex: 1)
-        currentTabBar?.setIndex(1)
-        
+        currentTabBar?.setIndex(1)        
     }
     
     //Change table contents for current month

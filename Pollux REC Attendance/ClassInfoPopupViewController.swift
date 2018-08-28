@@ -18,6 +18,7 @@ class ClassInfoPopupViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var classNameLabel: UILabel!
     @IBOutlet weak var studentTableView: UITableView!
     @IBOutlet weak var teacherLabel: UILabel!
+    @IBOutlet weak var sessionDateLabel: UILabel!
     
     
     @IBAction func closeViewLGButton(_ sender: LGButton) {
@@ -29,6 +30,9 @@ class ClassInfoPopupViewController: UIViewController, UITableViewDataSource, UIT
         classNameLabel.text = currentSession.classInfo.className
         let mainTeacher = currentSession.classInfo.primaryTeacherName
         teacherLabel.text = "Main Teacher: " + mainTeacher
+        let df = DateFormatter()
+        df.dateFormat = "MMM d, yyyy"
+        sessionDateLabel.text = "Session Date: " + df.string(from: currentSession.date)
         studentTableView.allowsSelection = false
     }
     

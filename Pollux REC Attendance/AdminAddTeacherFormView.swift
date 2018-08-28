@@ -8,19 +8,40 @@
 
 import UIKit
 import Former
+import NotificationBannerSwift
 
 class AdminAddTeacherFormView: FormViewController {
     var teacherToCreateOrEdit = Teacher()
+    var editMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveBarButton(sender:)))
-        
+        formerSetup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        formerSetup()
+        if editMode {
+            navigationItem.title = "Edit Teacher"
+        }
+        if updatedClassesTaught.count > 0 {
+            teacherToCreateOrEdit.classesTaught = updatedClassesTaught
+            updatedClassesTaught = [ClassTerm]()
+            (self.former.sectionFormers[1].rowFormers[2] as! LabelRowFormer<FormLabelCellWithAccessory>).configure { row in
+                row.update()
+                row.update { row in
+                    if updatedSelectedCount == 0 {
+                        row.text = "Classes Taught - " + String(teacherToCreateOrEdit.classesTaught.count) + " Selected"
+                    }
+                    else {
+                        row.text = "Classes Taught - " + String(updatedSelectedCount) + " Selected"
+                        updatedSelectedCount = 0
+                        doGetClassesFromServer = false
+                    }
+                }
+            }
+        }
     }
     
     func formerSetup() {
@@ -52,15 +73,18 @@ class AdminAddTeacherFormView: FormViewController {
         }
         let administratorSwitch = SwitchRowFormer<FormSwitchCell>() {
             $0.titleLabel.text = "Administrator?"
-            $0.switchButton.isOn = self.teacherToCreateOrEdit.isAdministrator
             }.onSwitchChanged { isAdministrator in
                 self.teacherToCreateOrEdit.isAdministrator = isAdministrator
+            }.configure { row in
+                row.switched = self.teacherToCreateOrEdit.isAdministrator
         }
         let disableSwitch = SwitchRowFormer<FormSwitchCell>() {
             $0.titleLabel.text = "Disable Account?"
             $0.switchButton.isOn = self.teacherToCreateOrEdit.isDisabled
             }.onSwitchChanged { isDisabled in
                 self.teacherToCreateOrEdit.isDisabled = isDisabled
+            }.configure { row in
+                row.switched = self.teacherToCreateOrEdit.isDisabled
         }
         let section2 = SectionFormer(rowFormer: administratorSwitch, disableSwitch, classSelectionRow).set(headerViewFormer: createHeader("Permissions"))
         former.append(sectionFormer: section2)
@@ -75,7 +99,49 @@ class AdminAddTeacherFormView: FormViewController {
     }
     
     @objc func saveBarButton(sender: UIBarButtonItem) {
-        //Check if email is duplicate
+        if !editMode {
+            AdminDataManager.checkIfEmailIsDuplicate(emailAddress: teacherToCreateOrEdit.emailAddress) { doesExist, error in
+                if error == nil {
+                    if doesExist! {
+                        let banner = NotificationBanner(title: "Error: Duplicate Email", subtitle: "This email is being used by a different account.", style: .danger)
+                        banner.show()
+                    }
+                    else {
+                        self.saveTeacher()
+                    }
+                }
+                else {
+                    let banner = NotificationBanner(title: "Error checking if email is duplicate", subtitle: error!.localizedDescription, style: .danger)
+                    banner.show()
+                }
+            }
+        }
+        else {
+            saveTeacher()
+        }
+        updatedSelectedCount = 0
+        updatedClassesTaught = [ClassTerm]()
+        doGetClassesFromServer = true
+    }
+    
+    func saveTeacher() {
+        AdminDataManager.saveTeacher(teacherToSave: teacherToCreateOrEdit, addNew: !editMode) { error in
+            if error == nil {
+                self.navigationController?.popViewController(animated: true)
+            }
+            else {
+                let banner = NotificationBanner(title: "Error saving teacher", subtitle: error!.localizedDescription, style: .danger)
+                banner.show()
+            }
+        }
+    }
+    
+    override func didMove(toParentViewController parent: UIViewController?) {
+        if let teacherList = parent as? ManageTeacherTableView {
+            updatedSelectedCount = 0
+            updatedClassesTaught = [ClassTerm]()
+            doGetClassesFromServer = true
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,7 +149,9 @@ class AdminAddTeacherFormView: FormViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if let selectClassesView = segue.destination as? SelectClassesTableView {
+            selectClassesView.classTermsOfTeacher = teacherToCreateOrEdit.classesTaught
+        }
     }
 }
 

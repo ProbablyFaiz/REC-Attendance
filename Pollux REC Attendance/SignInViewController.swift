@@ -26,7 +26,8 @@ class SignInViewController: UIViewController {
                     if error == nil {
                         currentUser = user!
                         let defaults = UserDefaults.standard
-                        defaults.set(user!.bearerToken, forKey: "BearerToken")
+                        defaults.set(currentUser.bearerToken, forKey: "BearerToken")
+                        defaults.set(currentUser.teacherId, forKey: "TeacherId")
                         CustomManager.manager = CustomManager.generateManager()
                         self.performSegue(withIdentifier: "signInToTabController", sender: nil)
                     }
@@ -46,9 +47,9 @@ class SignInViewController: UIViewController {
         let defaults = UserDefaults()
         if let storedToken = defaults.string(forKey: "BearerToken") {
             currentUser.bearerToken = storedToken
+            currentUser.teacherId = defaults.integer(forKey: "TeacherId")
             self.performSegue(withIdentifier: "signInToTabController", sender: nil)
-        }
-        
+        }        
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.googleSignIn.alpha = 1

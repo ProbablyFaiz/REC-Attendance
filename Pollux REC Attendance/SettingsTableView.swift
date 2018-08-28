@@ -51,7 +51,7 @@ class SettingsTableView: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.elementsEqual(IndexPath(item: 0, section: 0)) {
-            performSegue(withIdentifier: "settingsToManageTeachers", sender: nil)
+            //performSegue(withIdentifier: "settingsToManageTeachers", sender: nil)
         }
         if indexPath.elementsEqual(IndexPath(item: 0, section: 1)) {
             let alertController = UIAlertController(title: "Sign Out", message: "Are you sure you want to sign out?", preferredStyle: .alert)

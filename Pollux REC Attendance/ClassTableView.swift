@@ -39,7 +39,10 @@ class ClassTableView: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         getSession() { error in
-            
+            if error != nil {
+                let banner = NotificationBanner(title: "Error finding a session on the server", subtitle: error!.localizedDescription, style: .danger)
+                banner.show()
+            }
         }
     }
     
@@ -57,20 +60,48 @@ class ClassTableView: UITableViewController {
     
     private func getSession(completion: @escaping (Error?) -> Void) {
         if currentSessionId == nil {
-            currentSessionId = 6
-        }
-        SessionDataManager.getSessionData(sessionId: currentSessionId!) { sessionData, error in
-            if let sessionAttendance = sessionData {
-                self.currentSession = sessionAttendance
-                self.students = self.currentSession.students
-                self.classTitle.title = self.currentSession.classInfo.className
-                self.tableView.reloadData()
-                completion(nil)
+            SessionDataManager.getNearestSessionId(teacherId: currentUser.teacherId) { sessionId, error in
+                if error == nil && sessionId != nil {
+                    currentSessionId = sessionId
+                    SessionDataManager.getSessionData(sessionId: currentSessionId!) { sessionData, error in
+                        if let sessionAttendance = sessionData {
+                            self.currentSession = sessionAttendance
+                            self.students = self.currentSession.students
+                            self.classTitle.title = self.currentSession.classInfo.className
+                            self.tableView.reloadData()
+                            completion(nil)
+                        }
+                        else {
+                            let banner = NotificationBanner(title: "Failed to get session data", subtitle: error!.localizedDescription, style: .danger)
+                            banner.show()
+                            completion(error)
+                        }
+                    }
+                }
+                else if sessionId == nil && error == nil {
+                    let banner = NotificationBanner(title: "Could not find a session", subtitle: "Try checking your schedule to see if you have any.", style: .danger)
+                    banner.show()
+                    completion(nil)
+                }
+                else {
+                    completion(error)
+                }
             }
-            else {
-                let banner = NotificationBanner(title: "Failed to get session data", subtitle: error!.localizedDescription, style: .danger)
-                banner.show()
-                completion(error)
+        }
+        else {
+            SessionDataManager.getSessionData(sessionId: currentSessionId!) { sessionData, error in
+                if let sessionAttendance = sessionData {
+                    self.currentSession = sessionAttendance
+                    self.students = self.currentSession.students
+                    self.classTitle.title = self.currentSession.classInfo.className
+                    self.tableView.reloadData()
+                    completion(nil)
+                }
+                else {
+                    let banner = NotificationBanner(title: "Failed to get session data", subtitle: error!.localizedDescription, style: .danger)
+                    banner.show()
+                    completion(error)
+                }
             }
         }
     }
