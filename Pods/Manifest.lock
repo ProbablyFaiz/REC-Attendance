@@ -1,25 +1,27 @@
 PODS:
-  - Alamofire (4.6.0)
-  - AZTabBar (1.3.1):
+  - Alamofire (4.7.3)
+  - AZTabBar (1.3.2):
     - EasyNotificationBadge
   - EasyNotificationBadge (1.1.3)
+  - Former (1.6.1)
   - FSCalendar (2.7.9)
   - LGButton (1.0.5)
-  - MarqueeLabel/Swift (3.1.4)
-  - McPicker (0.5.2)
+  - MarqueeLabel/Swift (3.1.6)
+  - McPicker (1.0.0)
   - MIBlurPopup (0.1.3)
-  - NotificationBannerSwift (1.5.3):
+  - NotificationBannerSwift (1.6.3):
     - MarqueeLabel/Swift
     - SnapKit (~> 4.0)
   - Simplicity (2.0.1)
   - SnapKit (4.0.0)
-  - SwiftIconFont (2.7.3)
-  - SwiftyJSON (4.0.0)
+  - SwiftIconFont (2.8.0)
+  - SwiftyJSON (4.1.0)
   - TwicketSegmentedControl (0.1.2)
 
 DEPENDENCIES:
   - Alamofire
   - AZTabBar
+  - Former
   - FSCalendar
   - LGButton
   - McPicker
@@ -31,21 +33,22 @@ DEPENDENCIES:
   - TwicketSegmentedControl
 
 SPEC CHECKSUMS:
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  AZTabBar: bbb19d62a02c7303e7331c855d1e84d1ddf9ba26
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AZTabBar: ae3f25c0d77593a0fee4cfb3ad2912f68e560f12
   EasyNotificationBadge: d7054b7980f36469bfca1624ff40426703a78ac5
+  Former: 830077d303185f56bcde1be0158b31f0626f1be4
   FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
   LGButton: 707ce916eb80b73a6c4688df34bee11adbafb663
-  MarqueeLabel: bf768455fe88d427f71476ebb23f9092b660f40b
-  McPicker: 3c21f279480d04ba7f8a4ae8445f59c7e0931a99
+  MarqueeLabel: 0c41f08ef5773e29c0f71064a8fa788a2fd8b365
+  McPicker: 130183cd3d22fc6933ea9e63c5a0d0d1becc0122
   MIBlurPopup: e0834e469074cabf65a0ca6e6d900c84d48f8a4f
-  NotificationBannerSwift: 0a6f482ddbafb9555668e592245af0da7871178e
+  NotificationBannerSwift: b231e4c3244848ef300e1c53ce027b9756b9b06f
   Simplicity: 58ce0c6569baf45e48ccd25432274ae899097517
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwiftIconFont: ebd8ee931a1e7072b61a87aec53f3a0786ef7f2b
-  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  SwiftIconFont: ddaccaa3bb90fc21ebc528cfdf793342618a5cc2
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
 
-PODFILE CHECKSUM: d40eba567461b6aa2d39d95f18a2616cbbd465ee
+PODFILE CHECKSUM: 6c17c565b2ec709f7fb0278f53db1d853793ad14
 
 COCOAPODS: 1.3.1

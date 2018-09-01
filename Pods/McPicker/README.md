@@ -5,30 +5,56 @@
 [![Platform](https://img.shields.io/cocoapods/p/McPicker.svg?style=flat)](http://cocoapods.org/pods/McPicker)
 
 ## About
-McPicker is a UIPickerView drop-in solution with animations that is rotation ready. The more string arrays you pass, the more picker components you'll get. You can set custom label or use the defaults. McPicker can be presented as a Popover on iPhone or iPad using `showAsPopover` or use the default slide up and down style `show`.
+McPicker is a UIPickerView drop-in solution with animations that is rotation ready. The more string arrays you pass, the more picker components you'll get. You can set custom label or use the defaults. McPicker can be presented as a Popover on iPhone or iPad using `showAsPopover`, as an `inputView` using `McTextField` or use the default slide up and down style `show`.
 
 `showAsPopover` can be used to display from a `UIView` or `UIBarButtonItem`. `showAsPopover` will always be presented as a Popover, even when used on an iPhone.
 
 ## Usage
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![](http://mcgilldevtech.com/img/github/mcpicker/mcpicker-0.3.0-ios.gif)
+![](https://mcgilldevtech.com/img/github/mcpicker/mcpicker-1.0.0-ios.gif)
 
 #### Short Syntax
 - Normal - (Slide up from bottom)
 ```swift
-McPicker.show(data: [["Kevin", "Lauren", "Kibby", "Stella"]]) {  (selections: [Int : String]) -> Void in
+McPicker.show(data: [["Kevin", "Lauren", "Kibby", "Stella"]]) {  [weak self] (selections: [Int : String]) -> Void in
     if let name = selections[0] {
-        self.label.text = name
+        self?.label.text = name
     }
 }
 ```
 - As Popover
 ```swift
 let data: [[String]] = [["Kevin", "Lauren", "Kibby", "Stella"]]
-McPicker.showAsPopover(data: data, fromViewController: self, barButtonItem: sender) { (selections: [Int : String]) -> Void in
+McPicker.showAsPopover(data: data, fromViewController: self, barButtonItem: sender) { [weak self] (selections: [Int : String]) -> Void in
     if let name = selections[0] {
-        self.label.text = name
+        self?.label.text = name
+    }
+}
+```
+- As an `inputView` via `McTextField`
+```swift
+@IBOutlet weak var textField: McTextField!
+override func viewDidLoad() {
+    let data: [[String]] = [["Kevin", "Lauren", "Kibby", "Stella"]]
+    let mcInputView = McPicker(data: data)
+    mcInputView.backgroundColor = .gray
+    mcInputView.backgroundColorAlpha = 0.25
+    textField.inputViewMcPicker = mcInputView
+    textField.doneHandler = { [weak textField] (selections) in
+        textField?.text = selections[0]!
+    }
+    textField.selectionChangedHandler = { [weak textField] (selections, componentThatChanged) in
+        textField?.text = selections[componentThatChanged]!
+    }
+    textField.cancelHandler = { [weak textField] in
+        textField?.text = "Cancelled."
+    }
+    textField.textFieldWillBeginEditingHandler = { [weak textField] (selections) in
+        if textField?.text == "" {
+            // Selections always default to the first value per component
+            textField?.text = selections[0]
+        }
     }
 }
 ```
@@ -36,50 +62,57 @@ McPicker.showAsPopover(data: data, fromViewController: self, barButtonItem: send
 #### Customization
 ```swift
 let data: [[String]] = [
-  ["Sir", "Mr", "Mrs", "Miss"],
-  ["Kevin", "Lauren", "Kibby", "Stella"]
+    ["Sir", "Mr", "Mrs", "Miss"],
+    ["Kevin", "Lauren", "Kibby", "Stella"]
 ]
+let mcPicker = McPicker(data: data)
 
 let customLabel = UILabel()
 customLabel.textAlignment = .center
 customLabel.textColor = .white
 customLabel.font = UIFont(name:"American Typewriter", size: 30)!
-
-let mcPicker = McPicker(data: data)
+mcPicker.label = customLabel // Set your custom label
 
 let fixedSpace = McPickerBarButtonItem.fixedSpace(width: 20.0)
 let flexibleSpace = McPickerBarButtonItem.flexibleSpace()
-let fireButton = McPickerBarButtonItem.done(mcPicker: mcPicker, title: "Fire!!!")
-let cancelButton = McPickerBarButtonItem.cancel(mcPicker: mcPicker, barButtonSystemItem: .cancel)
+let fireButton = McPickerBarButtonItem.done(mcPicker: mcPicker, title: "Fire!!!") // Set custom Text
+let cancelButton = McPickerBarButtonItem.cancel(mcPicker: mcPicker, barButtonSystemItem: .cancel) // or system items
 mcPicker.setToolbarItems(items: [fixedSpace, cancelButton, flexibleSpace, fireButton, fixedSpace])
 
-mcPicker.label = customLabel // Set your custom label
 mcPicker.toolbarItemsFont = UIFont(name:"American Typewriter", size: 17)!
 
 mcPicker.toolbarButtonsColor = .white
 mcPicker.toolbarBarTintColor = .darkGray
 mcPicker.pickerBackgroundColor = .gray
+mcPicker.backgroundColor = .gray
+mcPicker.backgroundColorAlpha = 0.50
+
 mcPicker.pickerSelectRowsForComponents = [
     0: [3: true],
-    1: [2: true] // [Component: [Row: isAnimated]
+    1: [2: true]
 ]
 
 if let barButton = sender as? UIBarButtonItem {
     // Show as Popover
     //
-    mcPicker.showAsPopover(fromViewController: self, barButtonItem: barButton) { (selections: [Int : String]) -> Void in
+    mcPicker.showAsPopover(fromViewController: self, barButtonItem: barButton) { [weak self] (selections: [Int : String]) -> Void in
         if let prefix = selections[0], let name = selections[1] {
-            self.label.text = "\(prefix) \(name)"
+            self?.label.text = "\(prefix) \(name)"
         }
     }
 } else {
     // Show Normal
     //
-    mcPicker.show { selections in
+    mcPicker.show(doneHandler: { [weak self] (selections: [Int : String]) -> Void in
         if let prefix = selections[0], let name = selections[1] {
-            self.label.text = "\(prefix) \(name)"
+            self?.label.text = "\(prefix) \(name)"
         }
-    }
+    }, cancelHandler: {
+        print("Canceled Styled Picker")
+    }, selectionChangedHandler: { (selections: [Int:String], componentThatChanged: Int) -> Void  in
+        let newSelection = selections[componentThatChanged] ?? "Failed to get new selection!"
+        print("Component \(componentThatChanged) changed value to \(newSelection)")
+    })
 }
 ```
 

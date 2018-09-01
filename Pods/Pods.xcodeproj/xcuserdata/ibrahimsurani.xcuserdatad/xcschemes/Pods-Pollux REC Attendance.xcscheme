@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0940"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B07D444C40CE78B94F4F6C23752A65B"
+               BlueprintIdentifier = "A202A46229F37D933145C5881374560E"
                BuildableName = "Pods_Pollux_REC_Attendance.framework"
                BlueprintName = "Pods-Pollux REC Attendance"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B07D444C40CE78B94F4F6C23752A65B"
+            BlueprintIdentifier = "A202A46229F37D933145C5881374560E"
             BuildableName = "Pods_Pollux_REC_Attendance.framework"
             BlueprintName = "Pods-Pollux REC Attendance"
             ReferencedContainer = "container:Pods.xcodeproj">

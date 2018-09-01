@@ -12,15 +12,12 @@ public protocol TwicketSegmentedControlDelegate: class {
     func didSelect(_ segmentIndex: Int)
 }
 
-
-
 open class TwicketSegmentedControl: UIControl {
-    
     open static let height: CGFloat = Constants.height + Constants.topBottomMargin * 2
-    public var doAnimate = true
+    public var animationDuration = 0.2
     
     private struct Constants {
-        static let height: CGFloat = 35
+        static let height: CGFloat = 30
         static let topBottomMargin: CGFloat = 5
         static let leadingTrailingMargin: CGFloat = 10
     }
@@ -277,6 +274,7 @@ open class TwicketSegmentedControl: UIControl {
     open func move(to index: Int) {
         let correctOffset = center(at: index)
         animate(to: correctOffset)
+
         selectedSegmentIndex = index
         self.sendActions(for: .valueChanged)
     }
@@ -294,8 +292,8 @@ open class TwicketSegmentedControl: UIControl {
     }
 
     private func animate(to position: CGFloat) {
-        let time = doAnimate ? 0.2 : 0
-        UIView.animate(withDuration: time) {
+        
+        UIView.animate(withDuration: animationDuration) {
             self.sliderView.center.x = position
         }
     }

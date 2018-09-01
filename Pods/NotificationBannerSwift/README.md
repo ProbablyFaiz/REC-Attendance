@@ -125,7 +125,7 @@ Its as easy as creating a custom banner colors class:
 ```swift
 class CustomBannerColors: BannerColorsProtocol {
 
-    internal override func color(for style: BannerStyle) -> UIColor {
+    internal func color(for style: BannerStyle) -> UIColor {
         switch style {
             case .danger:   // Your custom .danger color
             case .info:     // Your custom .info color
@@ -235,7 +235,13 @@ banner.haptic = .heavy
 
 ## Banner Queue
 
-By default, each notification banner is placed onto a `NotificationBannerQueue`. This allows an infinite amount of banners to be de displayed without one hiding the other. By default, each notification banner is placed on the back of the queue. If you would rather place the banner in the front and show it immediately no matter how many banners are in the queue, simply state it in the `show()` method:
+By default, each notification banner is placed onto a singleton of an auto-managed `NotificationBannerQueue`. This allows an infinite amount of banners to be displayed without one hiding the other. If you have multiple controllers within your navigation stack that need to be managed by a seperate queue (like a tab bar controller), simply create an instance of a `NotificationBannerQueue` and pass it in to the show function:
+
+```swift
+banner.show(queue: customQueue)
+```
+
+By default, each notification banner is placed on the back of the queue. If you would rather place the banner in the front and show it immediately no matter how many banners are in the queue, simply state it in the `show()` method:
 
 ```swift
 banner.show(queuePosition: .front)
@@ -258,6 +264,9 @@ I'd love to know anything that you think NotificationBanner is missing. Open an 
 ## Apps that Use NotificationBanner
 [![Q - Talk About Music](AppIcons/q_talk_about_music.jpg)](https://itunes.apple.com/us/app/q-talk-about-music/id1071551321?mt=8) 
 [![VH Dispatch](AppIcons/vh_dispatch.png)](https://itunes.apple.com/us/app/vh-dispatch/id1249569084?mt=8)
+[![Stikkr](AppIcons/stikkr.png)](https://itunes.apple.com/us/app/stikkr/id851375015?ls=1&mt=8)
+[![CardCast](AppIcons/cardcast.png)](https://itunes.apple.com/us/app/cardcast-business-cards/id1269278947?mt=8)
+[![Happy Scale](AppIcons/happy_scale.png)](https://itunes.apple.com/us/app/happy-scale/id532430574?mt=8)
  
 #### Feel free to add yours!
 

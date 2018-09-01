@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import Pollux_REC_Attendance
 
 class Pollux_REC_AttendanceTests: XCTestCase {
     
