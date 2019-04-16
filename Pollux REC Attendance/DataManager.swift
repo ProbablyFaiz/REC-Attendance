@@ -419,6 +419,13 @@ class CustomManager: SessionManager {
     }
 }
 
+extension NotificationBanner {
+    public static func showErrorBanner(title: String, error: Error?) {
+        let banner = NotificationBanner(title: title, subtitle: error!.localizedDescription, style: .danger)
+        banner.show()
+    }
+}
+
 extension UIColor {
     public static func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

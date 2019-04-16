@@ -2,8 +2,8 @@
 //  StudentAttendanceCell.swift
 //  Pollux REC Attendance
 //
-//  Created by Ibrahim Surani on 1/1/18.
-//  Copyright © 2018 Ibrahim Surani. All rights reserved.
+//  Created by Faiz Surani on 1/1/18.
+//  Copyright © 2018 Faiz Surani. All rights reserved.
 //
 
 import UIKit

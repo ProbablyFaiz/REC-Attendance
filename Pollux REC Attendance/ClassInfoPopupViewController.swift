@@ -2,8 +2,8 @@
 //  ClassInfoPopupViewController.swift
 //  Pollux REC Attendance
 //
-//  Created by Ibrahim Surani on 1/5/18.
-//  Copyright © 2018 Ibrahim Surani. All rights reserved.
+//  Created by Faiz Surani on 1/5/18.
+//  Copyright © 2018 Faiz Surani. All rights reserved.
 //
 
 import UIKit
@@ -75,8 +75,8 @@ extension ClassInfoPopupViewController: MIBlurPopupDelegate {
         return popupInfoContainerView ?? UIView()
     }
     
-    var blurEffectStyle: UIBlurEffectStyle {
-        return UIBlurEffectStyle.extraLight
+    var blurEffectStyle: UIBlurEffect.Style {
+        return UIBlurEffect.Style.extraLight
     }
     
     var initialScaleAmmount: CGFloat {

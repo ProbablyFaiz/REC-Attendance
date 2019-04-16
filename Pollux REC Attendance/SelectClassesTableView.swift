@@ -10,6 +10,8 @@ import UIKit
 import NotificationBannerSwift
 import Former
 
+//These global variables are very, very bad! Swift gods have mercy on my soul.
+//TODO: Figure out why variable passing in segue wasn't working and fix so I can remove these
 var updatedClassesTaught = [ClassTerm]()
 var updatedSelectedCount = 0
 var doGetClassesFromServer = true
@@ -43,8 +45,7 @@ class SelectClassesTableView: UITableViewController {
                     }
                 }
                 else {
-                    let banner = NotificationBanner(title: "Failed to get class terms", subtitle: error?.localizedDescription, style: .danger)
-                    banner.show()
+                    NotificationBanner.showErrorBanner(title: "Failed to get class term list", error: error)
                 }
             }
         }

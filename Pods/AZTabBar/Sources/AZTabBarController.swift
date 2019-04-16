@@ -8,11 +8,14 @@
 
 import UIKit
 import AVFoundation
+
+#if canImport(EasyNotificationBadge)
 import EasyNotificationBadge
+#endif
 
 public typealias AZTabBarAction = (() -> Void)
 
-public class AZTabBarController: UIViewController {
+open class AZTabBarController: UIViewController {
     
     /*
      *  MARK: - Static instance methods
@@ -27,10 +30,10 @@ public class AZTabBarController: UIViewController {
     /// - Returns: The instance of AZTabBarController which was created.
     open class func insert(into parent:UIViewController, withTabIconNames names: [String],andSelectedIconNames sNames: [String]? = nil)->AZTabBarController {
         let controller = AZTabBarController(withTabIconNames: names,highlightedIcons: sNames)
-        parent.addChildViewController(controller)
+        parent.addChild(controller)
         parent.view.addSubview(controller.view)
         controller.view.frame = parent.view.bounds
-        controller.didMove(toParentViewController: parent)
+        controller.didMove(toParent: parent)
         
         return controller
     }
@@ -45,10 +48,10 @@ public class AZTabBarController: UIViewController {
     /// - Returns: The instance of AZTabBarController which was created.
     open class func insert(into parent:UIViewController, withTabIcons icons: [UIImage],andSelectedIcons sIcons: [UIImage]? = nil)->AZTabBarController {
         let controller = AZTabBarController(withTabIcons: icons,highlightedIcons: sIcons)
-        parent.addChildViewController(controller)
+        parent.addChild(controller)
         parent.view.addSubview(controller.view)
         controller.view.frame = parent.view.bounds
-        controller.didMove(toParentViewController: parent)
+        controller.didMove(toParent: parent)
         return controller
     }
     
@@ -57,7 +60,7 @@ public class AZTabBarController: UIViewController {
      */
     
     /// The color of icon in the tab bar when the menu is selected.
-    open var selectedColor:UIColor! {
+    open var selectedColor:UIColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1) {
         didSet{
             updateInterfaceIfNeeded()
             if didSetUpInterface {
@@ -68,7 +71,7 @@ public class AZTabBarController: UIViewController {
     
     
     /// The default icon color of the buttons in the tab bar.
-    open var defaultColor:UIColor! {
+    open var defaultColor:UIColor = .lightGray {
         didSet{
             updateInterfaceIfNeeded()
             if didSetUpInterface {
@@ -76,8 +79,9 @@ public class AZTabBarController: UIViewController {
             }
         }
     }
-    
-    open var highlightColor: UIColor! {
+
+    /// The tint color of the button when highlighted.
+    open var highlightColor: UIColor = .white {
         didSet{
             updateInterfaceIfNeeded()
             if didSetUpInterface {
@@ -87,7 +91,7 @@ public class AZTabBarController: UIViewController {
     }
     
     /// The background color of a highlighted button.
-    open var highlightedBackgroundColor: UIColor! {
+    open var highlightedBackgroundColor: UIColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1) {
         didSet{
             updateInterfaceIfNeeded()
             if didSetUpInterface {
@@ -97,7 +101,7 @@ public class AZTabBarController: UIViewController {
     }
     
     /// The color of the selection indicator.
-    open var selectionIndicatorColor: UIColor!{
+    open var selectionIndicatorColor: UIColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1) {
         didSet{
             self.updateInterfaceIfNeeded()
             if didSetUpInterface {
@@ -107,7 +111,7 @@ public class AZTabBarController: UIViewController {
     }
     
     /// The background color of the buttons in the tab bar.
-    open var buttonsBackgroundColor:UIColor!{
+    open var buttonsBackgroundColor:UIColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1) {
         didSet{
             if buttonsBackgroundColor != oldValue {
                 self.updateInterfaceIfNeeded()
@@ -160,7 +164,7 @@ public class AZTabBarController: UIViewController {
     open var notificationBadgeAppearance: BadgeAppearance = BadgeAppearance()
     
     /// The height of the selection indicator.
-    open var selectionIndicatorHeight:CGFloat = 3.0{
+    open var selectionIndicatorHeight:CGFloat = 1.0{
         didSet{
             updateInterfaceIfNeeded()
         }
@@ -229,11 +233,11 @@ public class AZTabBarController: UIViewController {
      * MARK: - Internal Properties
      */
     
-    override public var preferredStatusBarStyle: UIStatusBarStyle{
+    override open var preferredStatusBarStyle: UIStatusBarStyle{
         return self.statusBarStyle
     }
     
-    override public var childViewControllerForStatusBarStyle: UIViewController?{
+    override open var childForStatusBarStyle: UIViewController?{
         return nil
     }
     
@@ -292,8 +296,7 @@ public class AZTabBarController: UIViewController {
     /// Array which holds the actions.
     fileprivate var actions: [AZTabBarAction?]!
     
-    /// A flag to indicate if the interface was set up.
-    fileprivate var didSetupInterface:Bool = false
+
     
     /// An array which keeps track of the highlighted menus.
     fileprivate var highlightedButtonIndexes:NSMutableSet!
@@ -302,7 +305,7 @@ public class AZTabBarController: UIViewController {
     fileprivate var badgeValues: [String?]!
     
     /// Computed var that returns the amount of tabs.
-    fileprivate var tabCount: Int{ return tabIcons.count }
+    fileprivate var tabCount: Int { return tabIcons.count }
     
     /// A flag that marks if the interface was setup or not.
     fileprivate var didSetUpInterface = false
@@ -311,12 +314,16 @@ public class AZTabBarController: UIViewController {
     fileprivate lazy var buttonsText: [String?] = Array<String?>(repeating: nil, count: self.tabCount)
 
     fileprivate lazy var buttonsColors: [UIColor?] = Array<UIColor?>(repeating: nil,count: self.tabCount)
+
+    fileprivate var isRTL: Bool {
+        return UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft
+    }
     
     /*
      * MARK: - Init
      */
     
-    override public func loadView() {
+    override open func loadView() {
         super.loadView()
         
         //init primary views
@@ -400,12 +407,12 @@ public class AZTabBarController: UIViewController {
      * MARK: - UIViewController
      */
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         self.buttonsContainerHeightConstraintInitialConstant = self.buttonsContainerHeightConstraint.constant
     }
     
-    override public func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         //Setup interface if didn't already
@@ -432,12 +439,12 @@ public class AZTabBarController: UIViewController {
         }
     }
     
-    override public func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+    override open func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         let selectedButtonX: CGFloat = self.buttons[self.selectedIndex].frame.origin.x
         self.selectionIndicatorLeadingConstraint.constant = selectedButtonX
     }
 
-    public override func viewSafeAreaInsetsDidChange() {
+    override open func viewSafeAreaInsetsDidChange() {
         if #available(iOS 11.0, *) {
             super.viewSafeAreaInsetsDidChange()
             tabBarHeight = buttonsContainerHeightConstraintInitialConstant
@@ -458,13 +465,13 @@ public class AZTabBarController: UIViewController {
         if index >= tabCount { return }
         
         if let currentViewController = self.controllers[index]{
-            currentViewController.removeFromParentViewController()
+            currentViewController.removeFromParent()
             if index == selectedIndex {
                 currentViewController.view.removeFromSuperview()
             }
         }
         self.controllers[index] = controller
-        self.addChildViewController(controller)
+        self.addChild(controller)
         if index == self.selectedIndex {
             // If the index is the selected one, we have to update the view
             // controller at that index so that the change is reflected.
@@ -483,7 +490,7 @@ public class AZTabBarController: UIViewController {
         if selectedIndex == index { return }
         
         if let currentVC = controllers[index] {
-            currentVC.removeFromParentViewController()
+            currentVC.removeFromParent()
         }
         
         controllers[index] = nil
@@ -553,27 +560,49 @@ public class AZTabBarController: UIViewController {
     /// - Parameters:
     ///   - text: The text to set.
     ///   - index: The index at which you would like to set the title.
-    open func setTitle(_ text: String?, atIndex index: Int){
-        if let buttons = buttons{
-            if index < buttons.count{
-                let button = buttons[index]
-                
-                button.setTitleColor(buttonsColors[index] ?? selectedColor, for: .selected)
-                button.setTitleColor(buttonsColors[index] ?? selectedColor, for: [.selected,.highlighted])
-                button.setTitleColor(defaultColor, for: [])
-                
-                if onlyShowTextForSelectedButtons{
-                    button.setTitle(nil, for: .normal)
-                    button.setTitle(nil, for: .highlighted)
-                    button.setTitle(text, for: .selected)
-                    button.setTitle(text, for: [.selected,.highlighted])
-                    
-                }else{
-                    button.setTitle(text, for: [])
-                }
-            }
-        }else{
+    open func setTitle(_ text: String?, atIndex index: Int, titleColor: UIColor? = nil){
+
+        // unwarp buttons
+        guard let buttons = buttons else {
             self.buttonsText[index] = text
+            return
+        }
+
+        // check if index is in bounds
+        guard index < buttons.count, index >= 0 else { return }
+
+        // get button
+        let button = buttons[index]
+        
+        let color: UIColor
+
+        if let titleColor = titleColor { color = titleColor }
+        else { color = selectedColor }
+
+
+        // case `selected` use buttonsColors[index] or `color` if not found.
+        button.setTitleColor(buttonsColors[index] ?? color, for: .selected)
+
+        // case `selected` and `highlighted` use buttonsColors[index] or `color` if not found.
+        button.setTitleColor(buttonsColors[index] ?? color, for: [.selected,.highlighted])
+
+        // any other case use `self.defaultColor`.
+        button.setTitleColor(defaultColor, for: [])
+
+        if onlyShowTextForSelectedButtons {
+            button.setTitle(nil, for: .normal)
+            button.setTitle(nil, for: .highlighted)
+            button.setTitle(text, for: .selected)
+            button.setTitle(text, for: [.selected,.highlighted])
+
+        }else{
+            button.setTitle(text, for: [])
+        }
+
+        if self.highlightedButtonIndexes.contains(index) {
+            button.setTitleColor(titleColor ?? highlightColor, for: .selected)
+            button.setTitleColor(titleColor ?? highlightColor, for: [.selected,.highlighted])
+            button.setTitleColor(titleColor ?? highlightColor, for: [])
         }
     }
     
@@ -779,7 +808,7 @@ public class AZTabBarController: UIViewController {
      */
     
     @objc func tabButtonAction(button:UIButton){
-        if let index = self.buttons.index(of: button){
+        if let index = self.buttons.firstIndex(of: button){
         	delegate?.tabBar(self, didSelectTabAtIndex: index)
         
             if let id = delegate?.tabBar(self, systemSoundIdForButtonAtIndex: index), !isAnimating{
@@ -794,7 +823,7 @@ public class AZTabBarController: UIViewController {
     
     func longClick(sender:AnyObject?){
         let button = sender as! UIButton
-        if let index = self.buttons.index(of: button){
+        if let index = self.buttons.firstIndex(of: button){
         
             if let delegate = delegate{
                 if !delegate.tabBar(self, shouldLongClickForIndex: index) {
@@ -844,7 +873,7 @@ public class AZTabBarController: UIViewController {
     }
     
     private func updateInterfaceIfNeeded() {
-        if self.didSetupInterface {
+        if self.didSetUpInterface {
             // If the UI was already setup, it's necessary to update it.
             self.setupInterface()
         }
@@ -854,7 +883,7 @@ public class AZTabBarController: UIViewController {
         self.setupButtons()
         self.setupSelectionIndicator()
         self.setupSeparatorLine()
-        self.didSetupInterface = true
+        self.didSetUpInterface = true
     }
     
     private func setupButtons(){
@@ -876,7 +905,7 @@ public class AZTabBarController: UIViewController {
         }
         self.customizeButtons()
         
-        self.buttonsContainer.backgroundColor = self.buttonsBackgroundColor != nil ? self.buttonsBackgroundColor : UIColor.lightGray
+        self.buttonsContainer.backgroundColor = self.buttonsBackgroundColor
     }
     
     private func customizeButtons(){
@@ -894,9 +923,9 @@ public class AZTabBarController: UIViewController {
             var color: UIColor!
             
             if isHighlighted{
-                color = self.highlightedBackgroundColor ?? UIColor.black
+                color = self.highlightedBackgroundColor
             }else{
-                color = buttonsColors[i] ?? self.selectedColor ?? UIColor.black
+                color = buttonsColors[i] ?? self.selectedColor
             }
             
             button.titleLabel?.font = font
@@ -907,7 +936,7 @@ public class AZTabBarController: UIViewController {
             
             let title: String? = button.title(for: []) ?? button.title(for: .selected)
             
-            if onlyShowTextForSelectedButtons{
+            if onlyShowTextForSelectedButtons {
                 button.setTitle(nil, for: .normal)
                 button.setTitle(nil, for: .highlighted)
                 button.setTitle(title, for: .selected)
@@ -921,8 +950,8 @@ public class AZTabBarController: UIViewController {
                                                highlightImage: highlightedImage,
                                                selectedColor: color,
                                                highlighted: isHighlighted,
-                                               defaultColor: self.defaultColor ?? UIColor.gray,
-                                               highlightColor: buttonsColors[i] ?? self.highlightColor ?? UIColor.white,
+                                               defaultColor: self.defaultColor,
+                                               highlightColor: buttonsColors[i] ?? self.highlightColor,
                                                ignoreColor: ignoreIconColors)
         }
     }
@@ -980,20 +1009,20 @@ public class AZTabBarController: UIViewController {
                 }
             }
             
-            controller.willMove(toParentViewController: self)
+            controller.willMove(toParent: self)
             
             controller.view.translatesAutoresizingMaskIntoConstraints = false
             self.controllersContainer.addSubview(controller.view)
             self.setupConstraints(forChildController: controller)
             
-            controller.didMove(toParentViewController: self)
+            controller.didMove(toParent: self)
             
             if let currentViewControllerView = currentViewControllerView, animated, animateTabChange {
                 //animate
                     
                 let offset: CGFloat = self.view.frame.size.width / 5
-                //let startX = index > selectedIndex ? self.view.frame.size.width + offset : -offset
-                let startX = index > selectedIndex ? offset : -offset
+                let startX = (index > selectedIndex ? offset : -offset) * (isRTL ? -1 : 1)
+
                 controller.view.transform = CGAffineTransform(translationX: startX, y: 0)
                 controller.view.alpha = 0
                     
@@ -1026,7 +1055,7 @@ public class AZTabBarController: UIViewController {
             self.setupSelectionIndicatorConstraints()
         }
         self.selectionIndicatorHeightConstraint.constant = self.selectionIndicatorHeight
-        self.selectionIndicator.backgroundColor = self.selectionIndicatorColor ?? UIColor.black
+        self.selectionIndicator.backgroundColor = self.selectionIndicatorColor
     }
     
     private func setupSeparatorLine() {
@@ -1133,8 +1162,9 @@ fileprivate extension AZTabBarController {
 
 
 public extension UIViewController{
-    
-    public var currentTabBar: AZTabBarController?{
+
+    /// The current tab bar in which this controller is a child of.
+    var currentTabBar: AZTabBarController?{
         var current: UIViewController? = parent
         
         repeat{

@@ -40,8 +40,7 @@ class ClassTableView: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         getSession() { error in
             if error != nil {
-                let banner = NotificationBanner(title: "Error finding a session on the server", subtitle: error!.localizedDescription, style: .danger)
-                banner.show()
+                NotificationBanner.showErrorBanner(title: "Error finding a session on the server", error: error)
             }
         }
     }
@@ -72,8 +71,7 @@ class ClassTableView: UITableViewController {
                             completion(nil)
                         }
                         else {
-                            let banner = NotificationBanner(title: "Failed to get session data", subtitle: error!.localizedDescription, style: .danger)
-                            banner.show()
+                            NotificationBanner.showErrorBanner(title: "Failed to get session data", error: error)
                             completion(error)
                         }
                     }
@@ -98,8 +96,7 @@ class ClassTableView: UITableViewController {
                     completion(nil)
                 }
                 else {
-                    let banner = NotificationBanner(title: "Failed to get session data", subtitle: error!.localizedDescription, style: .danger)
-                    banner.show()
+                    NotificationBanner.showErrorBanner(title: "Failed to get session data", error: error)
                     completion(error)
                 }
             }
@@ -146,8 +143,11 @@ extension ClassTableView {
         }
         cell.twicketAttendanceSegControl.animationDuration = 0.2
         
-        if cell.twicketAttendanceSegControl.selectedSegmentIndex <= 1 {
+        if studentInCell.attendanceStatusId <= 1 {
             cell.reasonTextField.isHidden = true
+        }
+        else {
+            cell.reasonTextField.isHidden = false
         }
         
         cell.twicketAttendanceSegControl.tag = indexPath.row
@@ -185,6 +185,7 @@ extension ClassTableView: UITextFieldDelegate {
         let currentText = textField.text
         
         let mcp = McPicker(data: reasonList)
+        mcp.toolbarButtonsColor = lightBlueBackgroundColor
         mcp.pickerSelectRowsForComponents = [0: [students[textField.tag].reasonId : false]]
         mcp.showAsPopover(fromViewController: self, sourceView: tableView.cellForRow(at: IndexPath(row: textField.tag, section: 0)), sourceRect: nil, barButtonItem: nil, doneHandler: { (selections: [Int : String]) -> Void in
             if let name = selections[0] {

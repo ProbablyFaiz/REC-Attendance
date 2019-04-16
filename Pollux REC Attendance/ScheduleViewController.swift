@@ -2,8 +2,8 @@
 //  scheduleViewController.swift
 //  Pollux REC Attendance
 //
-//  Created by Ibrahim Surani on 1/6/18.
-//  Copyright © 2018 Ibrahim Surani. All rights reserved.
+//  Created by Faiz Surani on 1/6/18.
+//  Copyright © 2018 Faiz Surani. All rights reserved.
 //
 
 import UIKit
@@ -35,8 +35,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
                 self.scheduleTableView.reloadData()
             }
             else {
-                let banner = NotificationBanner(title: "Failed to get session list", subtitle: error!.localizedDescription, style: .danger)
-                banner.show()
+                NotificationBanner.showErrorBanner(title: "Failed to get session list", error: error)
             }
         }
     }

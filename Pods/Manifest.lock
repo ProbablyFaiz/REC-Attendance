@@ -1,21 +1,21 @@
 PODS:
-  - Alamofire (4.7.3)
-  - AZTabBar (1.3.2):
+  - Alamofire (4.8.2)
+  - AZTabBar (1.4.2):
     - EasyNotificationBadge
-  - EasyNotificationBadge (1.1.3)
-  - Former (1.6.1)
-  - FSCalendar (2.7.9)
-  - LGButton (1.0.5)
-  - MarqueeLabel/Swift (3.1.6)
-  - McPicker (1.0.0)
+  - EasyNotificationBadge (1.2.0)
+  - Former (1.7.0)
+  - FSCalendar (2.8.0)
+  - LGButton (1.1.6)
+  - MarqueeLabel/Swift (3.2.1)
+  - McPicker (2.0.1)
   - MIBlurPopup (0.1.3)
-  - NotificationBannerSwift (1.6.3):
-    - MarqueeLabel/Swift
-    - SnapKit (~> 4.0)
+  - NotificationBannerSwift (2.0.1):
+    - MarqueeLabel/Swift (~> 3.2.0)
+    - SnapKit (~> 4.2.0)
   - Simplicity (2.0.1)
-  - SnapKit (4.0.0)
-  - SwiftIconFont (2.8.0)
-  - SwiftyJSON (4.1.0)
+  - SnapKit (4.2.0)
+  - SwiftIconFont (3.0.0)
+  - SwiftyJSON (5.0.0)
   - TwicketSegmentedControl (0.1.2)
 
 DEPENDENCIES:
@@ -33,20 +33,20 @@ DEPENDENCIES:
   - TwicketSegmentedControl
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  AZTabBar: ae3f25c0d77593a0fee4cfb3ad2912f68e560f12
-  EasyNotificationBadge: d7054b7980f36469bfca1624ff40426703a78ac5
-  Former: 830077d303185f56bcde1be0158b31f0626f1be4
-  FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
-  LGButton: 707ce916eb80b73a6c4688df34bee11adbafb663
-  MarqueeLabel: 0c41f08ef5773e29c0f71064a8fa788a2fd8b365
-  McPicker: 130183cd3d22fc6933ea9e63c5a0d0d1becc0122
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AZTabBar: e4d5a1f5f3fc7be044d532b7a704d303cff9af11
+  EasyNotificationBadge: afeb15ed6f9a4262d626a2b745297e96afa26c2e
+  Former: f78c0c28b84aadc4da3bf29e97220c8db188048d
+  FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
+  LGButton: 9f0a7f9d3030e3f504108342f6b66d64a429371b
+  MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
+  McPicker: a0a6b8ece8f1642e05401a29867463aba501188b
   MIBlurPopup: e0834e469074cabf65a0ca6e6d900c84d48f8a4f
-  NotificationBannerSwift: b231e4c3244848ef300e1c53ce027b9756b9b06f
+  NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   Simplicity: 58ce0c6569baf45e48ccd25432274ae899097517
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwiftIconFont: ddaccaa3bb90fc21ebc528cfdf793342618a5cc2
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SwiftIconFont: 2ba18554a77c44948dc35b561b344e3c23834a84
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
 
 PODFILE CHECKSUM: 6c17c565b2ec709f7fb0278f53db1d853793ad14

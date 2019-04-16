@@ -1,8 +1,6 @@
-# AZTabBarController
-A custom tab bar controller for iOS written in Swift 3.0
+![AZTabBarController](/Screenshots/logo/logotype-a.png)
 
-## Live Demo
-Checkout the live demo on [Appetize](https://appetize.io/app/dmbky73efrt5uvkh4xfdaz5axr?device=iphone6s&scale=75&orientation=portrait&osVersion=9.2)
+A custom tab bar controller for iOS written in Swift 4.0
 
 ## Screenshots
 
@@ -44,7 +42,7 @@ selectedIcons.append("ic_settings_filled")
 
 Now initialize the controller object through the following method:
 ```swift
-tabController = AZTabBarController.insert(into: self, withTabIconNames: icons, andSelectedIconNames: selectedIcons)
+tabController = .insert(into: self, withTabIconNames: icons, andSelectedIconNames: selectedIcons)
 ```
 
 Add controllers:
@@ -246,10 +244,11 @@ func tabBar(_ tabBar: AZTabBarController, willMoveToTabAtIndex index:Int)
 func tabBar(_ tabBar: AZTabBarController, didMoveToTabAtIndex index: Int)
 ```
 
-## Credit
+## Credits
 
-AZTabBarController is a converted and modified version of [ESTabBarController](https://github.com/ezescaruli/ESTabBarController) that is written in Objective-C by [ezescaruli](https://github.com/ezescaruli).
+AZTabBarController was originally inspired by [ESTabBarController](https://github.com/ezescaruli/ESTabBarController) that is written in Objective-C by [ezescaruli](https://github.com/ezescaruli).
 
+Thanks to [Tobaloidee](https://github.com/Tobaloidee) for creating the logo.
 
 
 

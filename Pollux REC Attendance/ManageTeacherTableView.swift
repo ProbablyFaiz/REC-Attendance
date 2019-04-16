@@ -9,6 +9,8 @@
 import UIKit
 import NotificationBannerSwift
 
+//The administration views are currently incomplete. While working, they are not yet able to withstand PEBKAC issues.
+
 class ManageTeacherTableView: UITableViewController {
     var teachers = [Teacher]()
     
@@ -21,8 +23,7 @@ class ManageTeacherTableView: UITableViewController {
                 self.tableView.reloadData()
             }
             else {
-                let banner = NotificationBanner(title: "Failed to get teacher list", subtitle: error?.localizedDescription, style: .danger)
-                banner.show()
+                NotificationBanner.showErrorBanner(title: "Failed to get teacher list", error: error)
             }
         }
     }

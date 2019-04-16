@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m83-Aj-Ec7">
-                                <rect key="frame" x="91" y="511" width="193" height="48"/>
+                                <rect key="frame" x="-5.5" y="463" width="386" height="96"/>
                                 <state key="normal" image="Google Sign In Button"/>
                                 <connections>
                                     <action selector="googleSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7bi-t8-S4R"/>
@@ -195,7 +193,7 @@
                                 <rect key="frame" x="55" y="63" width="265" height="490"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRx-pI-qee">
-                                        <rect key="frame" x="95" y="8" width="76" height="29"/>
+                                        <rect key="frame" x="94.5" y="8" width="76" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="5HW-Z6-iA2"/>
                                         </constraints>
@@ -292,7 +290,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ej9-0o-Hgf" customClass="LGButton" customModule="LGButton">
-                                <rect key="frame" x="134" y="551" width="106" height="44"/>
+                                <rect key="frame" x="134.5" y="551" width="106" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="106" id="MJA-lC-6me"/>
@@ -464,7 +462,6 @@
         <!--Settings-->
         <scene sceneID="FaX-m0-QWd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dNs-kh-1Cr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="SettingsTableView" id="PFr-zf-WXA" customClass="SettingsTableView" customModule="Attendance" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="bio-xN-gjJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -484,7 +481,7 @@
                                                     <rect key="frame" x="16" y="9" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coming Soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Df-hg-DhS">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Manage Teachers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Df-hg-DhS">
                                                     <rect key="frame" x="56" y="9" width="148" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -540,6 +537,7 @@
                         <segue destination="cyO-mN-hMO" kind="show" identifier="settingsToManageTeachers" id="bsN-c7-Rog"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dNs-kh-1Cr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-463" y="-836"/>
         </scene>
@@ -608,7 +606,7 @@
         <!--Add Teacher-->
         <scene sceneID="obR-oK-jcf">
             <objects>
-                <viewController title="Add Teacher" id="nIe-Pj-K9O" customClass="AdminAddTeacherFormView" customModule="Attendance" sceneMemberID="viewController">
+                <viewController title="Add Teacher" id="nIe-Pj-K9O" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kmA-3r-oGX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -626,7 +624,7 @@
         <!--Select Classes-->
         <scene sceneID="fdD-U6-NNl">
             <objects>
-                <tableViewController title="Select Classes" id="muS-LC-rgL" customClass="SelectClassesTableView" customModule="Attendance" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Select Classes" id="muS-LC-rgL" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bjG-YK-W7W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -670,9 +668,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Google Sign In Button" width="193" height="48"/>
-        <image name="Info Icon" width="50" height="50"/>
-        <image name="LAHQ Newsletter Logo" width="240" height="159"/>
-        <image name="Person Icon" width="50" height="50"/>
+        <image name="Google Sign In Button" width="386" height="96"/>
+        <image name="Info Icon" width="40" height="40"/>
+        <image name="LAHQ Newsletter Logo" width="480" height="318"/>
+        <image name="Person Icon" width="75" height="75"/>
     </resources>
 </document>

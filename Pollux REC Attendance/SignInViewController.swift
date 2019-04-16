@@ -10,6 +10,7 @@ import UIKit
 import TwicketSegmentedControl
 import McPicker
 import Simplicity
+import NotificationBannerSwift
 
 var currentUser = User()
 
@@ -33,6 +34,9 @@ class SignInViewController: UIViewController {
                     }
                 }
             }
+            else {
+                NotificationBanner.showErrorBanner(title: "Login failed", error: error)
+            }
         }
     }
     
@@ -51,7 +55,7 @@ class SignInViewController: UIViewController {
             self.performSegue(withIdentifier: "signInToTabController", sender: nil)
         }        
         
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
             self.googleSignIn.alpha = 1
             self.lahqPicture.alpha = 1
             self.recAttendanceLabel.alpha = 1

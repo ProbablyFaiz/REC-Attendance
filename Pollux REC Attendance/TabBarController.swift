@@ -2,7 +2,7 @@
 //  TabBarController.swift
 //  
 //
-//  Created by Ibrahim Surani on 8/12/18.
+//  Created by Faiz Surani on 8/12/18.
 //
 
 import UIKit

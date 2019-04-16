@@ -2,8 +2,8 @@
 //  AdminAddTeacher.swift
 //  Pollux REC Attendance
 //
-//  Created by Ibrahim Surani on 8/17/18.
-//  Copyright © 2018 Ibrahim Surani. All rights reserved.
+//  Created by Faiz Surani on 8/17/18.
+//  Copyright © 2018 Faiz Surani. All rights reserved.
 //
 
 import UIKit
@@ -111,8 +111,7 @@ class AdminAddTeacherFormView: FormViewController {
                     }
                 }
                 else {
-                    let banner = NotificationBanner(title: "Error checking if email is duplicate", subtitle: error!.localizedDescription, style: .danger)
-                    banner.show()
+                    NotificationBanner.showErrorBanner(title: "Error checking if email is duplicate", error: error)
                 }
             }
         }
@@ -130,13 +129,12 @@ class AdminAddTeacherFormView: FormViewController {
                 self.navigationController?.popViewController(animated: true)
             }
             else {
-                let banner = NotificationBanner(title: "Error saving teacher", subtitle: error!.localizedDescription, style: .danger)
-                banner.show()
+                NotificationBanner.showErrorBanner(title: "Failed to save teacher", error: error)
             }
         }
     }
     
-    override func didMove(toParentViewController parent: UIViewController?) {
+    override func didMove(toParent parent: UIViewController?) {
         if let teacherList = parent as? ManageTeacherTableView {
             updatedSelectedCount = 0
             updatedClassesTaught = [ClassTerm]()

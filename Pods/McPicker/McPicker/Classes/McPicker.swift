@@ -270,9 +270,9 @@ open class McPicker: UIView {
         super.willMove(toWindow: newWindow)
 
         if newWindow != nil {
-            NotificationCenter.default.addObserver(self, selector: #selector(McPicker.sizeViews), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(McPicker.sizeViews), name: UIDevice.orientationDidChangeNotification, object: nil)
         } else {
-            NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+            NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         }
     }
 
@@ -439,8 +439,10 @@ extension McPicker : UIPickerViewDelegate {
     }
 
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.pickerSelection[component] = pickerData[component][row]
-        self.selectionChangedHandler?(self.pickerSelection, component)
+         if !pickerData[component].isEmpty {
+            self.pickerSelection[component] = pickerData[component][row]
+            self.selectionChangedHandler?(self.pickerSelection, component)
+        }
     }
 }
 
