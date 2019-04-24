@@ -2,8 +2,8 @@
 //  DataManager.swift
 //  Pollux REC Attendance
 //
-//  Created by Ibrahim Surani on 12/16/17.
-//  Copyright © 2017 Ibrahim Surani. All rights reserved.
+//  Created by Faiz Surani on 12/16/17.
+//  Copyright © 2017 Faiz Surani. All rights reserved.
 //
 //  Disable arbitrary loads before submission
 
@@ -15,6 +15,7 @@ import NotificationBannerSwift
 
 let baseURL1 = "http://192.168.1.36:45458/api/rec"
 let baseURL = "https://recwebapi20180817111320.azurewebsites.net/api/rec/"
+//Testing Git on new machine
 
 class SessionDataManager {
     
