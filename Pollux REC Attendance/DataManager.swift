@@ -5,7 +5,7 @@
 //  Created by Faiz Surani on 12/16/17.
 //  Copyright © 2017 Faiz Surani. All rights reserved.
 //
-//  Disable arbitrary loads before submission
+// TODO: Disable arbitrary loads before submission
 
 import Foundation
 import UIKit

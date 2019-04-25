@@ -61,6 +61,10 @@ class SignInViewController: UIViewController {
             self.recAttendanceLabel.alpha = 1
         }) 
     }
+    //This should THEORETICALLY set all status bars to light content as a replacement for the deprecated UIApplication.shared.statusBarStyle in AppDelegate.swift
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

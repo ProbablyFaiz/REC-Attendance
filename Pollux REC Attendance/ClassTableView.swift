@@ -158,6 +158,7 @@ extension ClassTableView {
     
         cell.reasonTextField.text = reasonArray[studentInCell.reasonId]
         
+        
         return cell
     }
     
@@ -190,7 +191,7 @@ extension ClassTableView: UITextFieldDelegate {
         mcp.showAsPopover(fromViewController: self, sourceView: tableView.cellForRow(at: IndexPath(row: textField.tag, section: 0)), sourceRect: nil, barButtonItem: nil, doneHandler: { (selections: [Int : String]) -> Void in
             if let name = selections[0] {
                 textField.text = name
-                let reasonId = self.reasonArray.index(of: name)
+                let reasonId = self.reasonArray.firstIndex(of: name)
                 self.students[textField.tag].reasonId = reasonId ?? 0
             }
             if textField.text != currentText {

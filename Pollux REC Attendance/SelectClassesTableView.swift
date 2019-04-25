@@ -57,7 +57,7 @@ class SelectClassesTableView: UITableViewController {
                 if classTermIdsOfTeacher.contains(classTermIds[i]) {
                     
                 }
-                if let index = classTermIdsOfTeacher.index(of: classTermIds[i]) {
+                if let index = classTermIdsOfTeacher.firstIndex(of: classTermIds[i]) {
                     if classTermsOfTeacher[index].operation != "Delete" {
                         self.tableView.selectRow(at: IndexPath(row: i, section: 0), animated: false, scrollPosition: .none)
                     }
@@ -69,7 +69,7 @@ class SelectClassesTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let classTermIdsOfTeacher = self.classTermsOfTeacher.map { $0.classTermId }
         let classTermIds = self.classTerms.map { $0.classTermId }
-        if let index = classTermIdsOfTeacher.index(of: classTermIds[indexPath.row]) {
+        if let index = classTermIdsOfTeacher.firstIndex(of: classTermIds[indexPath.row]) {
             classTermsOfTeacher[index].operation = nil
         }
         else {
@@ -83,7 +83,7 @@ class SelectClassesTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
         let classTermIdsOfTeacher = self.classTermsOfTeacher.map { $0.classTermId }
         let classTermIds = self.classTerms.map { $0.classTermId }
-        if let index = classTermIdsOfTeacher.index(of: classTermIds[indexPath.row]) {
+        if let index = classTermIdsOfTeacher.firstIndex(of: classTermIds[indexPath.row]) {
             classTermsOfTeacher[index].operation = "Delete"
             updatedSelectedCount = updatedSelectedCount - 1
         }

@@ -8,9 +8,9 @@ PODS:
   - LGButton (1.1.6)
   - MarqueeLabel/Swift (3.2.1)
   - McPicker (2.0.1)
-  - MIBlurPopup (0.1.3)
-  - NotificationBannerSwift (2.0.1):
-    - MarqueeLabel/Swift (~> 3.2.0)
+  - MIBlurPopup (0.2.0)
+  - NotificationBannerSwift (2.1.0):
+    - MarqueeLabel/Swift (~> 3.2.1)
     - SnapKit (~> 4.2.0)
   - Simplicity (2.0.1)
   - SnapKit (4.2.0)
@@ -32,6 +32,24 @@ DEPENDENCIES:
   - SwiftyJSON
   - TwicketSegmentedControl
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AZTabBar
+    - EasyNotificationBadge
+    - Former
+    - FSCalendar
+    - LGButton
+    - MarqueeLabel
+    - McPicker
+    - MIBlurPopup
+    - NotificationBannerSwift
+    - Simplicity
+    - SnapKit
+    - SwiftIconFont
+    - SwiftyJSON
+    - TwicketSegmentedControl
+
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AZTabBar: e4d5a1f5f3fc7be044d532b7a704d303cff9af11
@@ -41,8 +59,8 @@ SPEC CHECKSUMS:
   LGButton: 9f0a7f9d3030e3f504108342f6b66d64a429371b
   MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
   McPicker: a0a6b8ece8f1642e05401a29867463aba501188b
-  MIBlurPopup: e0834e469074cabf65a0ca6e6d900c84d48f8a4f
-  NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
+  MIBlurPopup: 89c93626177602b3164673c9bf7d6b2ef388cd95
+  NotificationBannerSwift: 4483919639202bec56d6bfe8f106ebc352d38bc7
   Simplicity: 58ce0c6569baf45e48ccd25432274ae899097517
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftIconFont: 2ba18554a77c44948dc35b561b344e3c23834a84
@@ -51,4 +69,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 6c17c565b2ec709f7fb0278f53db1d853793ad14
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.6.1
