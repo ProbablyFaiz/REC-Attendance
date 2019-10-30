@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A90B75932270FF7B009EDE2F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90B75922270FF7B009EDE2F /* TabBarController.swift */; };
+		A9F657CE236A494C00C53882 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F657CD236A494C00C53882 /* AuthenticationManager.swift */; };
+		A9F657D0236A49C500C53882 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F657CF236A49C500C53882 /* UIExtensions.swift */; };
+		A9F657D2236A4A5C00C53882 /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F657D1236A4A5C00C53882 /* DataStructures.swift */; };
+		A9F657D4236A4AC700C53882 /* AdminDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F657D3236A4AC700C53882 /* AdminDataManager.swift */; };
+		A9F657D6236A4C2C00C53882 /* CustomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F657D5236A4C2C00C53882 /* CustomManager.swift */; };
 		AF03C20F2127715D00D0831A /* ManageTeacherTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF03C20E2127715D00D0831A /* ManageTeacherTableView.swift */; };
 		AF0CF4351FE6093C00FE893A /* ClassTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CF4341FE6093C00FE893A /* ClassTableView.swift */; };
-		AF0CF4371FE60A8B00FE893A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CF4361FE60A8B00FE893A /* DataManager.swift */; };
+		AF0CF4371FE60A8B00FE893A /* SessionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CF4361FE60A8B00FE893A /* SessionDataManager.swift */; };
 		AF0CF43B1FFAF87300FE893A /* StudentAttendanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CF43A1FFAF87300FE893A /* StudentAttendanceCell.swift */; };
 		AF13796D212760BB00D04E2B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF13796C212760BB00D04E2B /* SignInViewController.swift */; };
 		AF1AD96C20FC659C008F2950 /* SessionScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1AD96B20FC659C008F2950 /* SessionScheduleCell.swift */; };
@@ -25,7 +30,7 @@
 		AF7403811FE5E4F4000E0C12 /* Pollux_REC_AttendanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7403801FE5E4F4000E0C12 /* Pollux_REC_AttendanceUITests.swift */; };
 		AF861EDE2000411300E65F3B /* ClassInfoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF861EDD2000411300E65F3B /* ClassInfoPopupViewController.swift */; };
 		AF861EE02001E5BC00E65F3B /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF861EDF2001E5BC00E65F3B /* ScheduleViewController.swift */; };
-		AFEF238C22655B4700E6E26C /* AdminAddTeacherFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF238A22655B4700E6E26C /* AdminAddTeacherFormView.swift */; };
+		AFEF238C22655B4700E6E26C /* AdminAddTeacherFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF238A22655B4700E6E26C /* AdminAddTeacherFormView.swift */; };
 		AFEF238D22655B4700E6E26C /* SelectClassesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF238B22655B4700E6E26C /* SelectClassesTableView.swift */; };
 		C4C0239138BBBFB3188428BE /* Pods_Pollux_REC_AttendanceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD97AA52E5233DAF1F4393C8 /* Pods_Pollux_REC_AttendanceUITests.framework */; };
 		C750882EBE3A90051D84A2ED /* Pods_Pollux_REC_Attendance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 601F6BD974383850FDFF6F8B /* Pods_Pollux_REC_Attendance.framework */; };
@@ -55,11 +60,16 @@
 		6E0ADAA9255690FB41859B77 /* Pods-Pollux REC Attendance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollux REC Attendance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pollux REC Attendance/Pods-Pollux REC Attendance.debug.xcconfig"; sourceTree = "<group>"; };
 		7C7BFCE2234DB84A7EE05FDB /* Pods-Pollux REC Attendance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollux REC Attendance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pollux REC Attendance/Pods-Pollux REC Attendance.release.xcconfig"; sourceTree = "<group>"; };
 		A90B75922270FF7B009EDE2F /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		A9F657CD236A494C00C53882 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		A9F657CF236A49C500C53882 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		A9F657D1236A4A5C00C53882 /* DataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
+		A9F657D3236A4AC700C53882 /* AdminDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDataManager.swift; sourceTree = "<group>"; };
+		A9F657D5236A4C2C00C53882 /* CustomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomManager.swift; sourceTree = "<group>"; };
 		AB9B50320B174B9FB8724F6D /* Pods-Pollux REC AttendanceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollux REC AttendanceUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pollux REC AttendanceUITests/Pods-Pollux REC AttendanceUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AC0E8D199E3719FBD2EC0CF0 /* Pods-Pollux REC AttendanceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollux REC AttendanceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pollux REC AttendanceTests/Pods-Pollux REC AttendanceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF03C20E2127715D00D0831A /* ManageTeacherTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTeacherTableView.swift; sourceTree = "<group>"; };
 		AF0CF4341FE6093C00FE893A /* ClassTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableView.swift; sourceTree = "<group>"; };
-		AF0CF4361FE60A8B00FE893A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		AF0CF4361FE60A8B00FE893A /* SessionDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDataManager.swift; sourceTree = "<group>"; };
 		AF0CF43A1FFAF87300FE893A /* StudentAttendanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAttendanceCell.swift; sourceTree = "<group>"; };
 		AF13796C212760BB00D04E2B /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = "Pollux REC Attendance/SignInViewController.swift"; sourceTree = SOURCE_ROOT; };
 		AF1AD96B20FC659C008F2950 /* SessionScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionScheduleCell.swift; sourceTree = "<group>"; };
@@ -80,7 +90,7 @@
 		AF7403821FE5E4F4000E0C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF861EDD2000411300E65F3B /* ClassInfoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoPopupViewController.swift; sourceTree = "<group>"; };
 		AF861EDF2001E5BC00E65F3B /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
-		AFEF238A22655B4700E6E26C /* AdminAddTeacherFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AdminAdd\U0010TeacherFormView.swift"; sourceTree = "<group>"; };
+		AFEF238A22655B4700E6E26C /* AdminAddTeacherFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminAddTeacherFormView.swift; sourceTree = "<group>"; };
 		AFEF238B22655B4700E6E26C /* SelectClassesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectClassesTableView.swift; sourceTree = "<group>"; };
 		CD97AA52E5233DAF1F4393C8 /* Pods_Pollux_REC_AttendanceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pollux_REC_AttendanceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1CC0C1B718AB7E1A801FB98 /* Pods_Pollux_REC_AttendanceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pollux_REC_AttendanceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +148,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A9F657CC236A491700C53882 /* Data Management */ = {
+			isa = PBXGroup;
+			children = (
+				AF0CF4361FE60A8B00FE893A /* SessionDataManager.swift */,
+				A9F657CD236A494C00C53882 /* AuthenticationManager.swift */,
+				A9F657CF236A49C500C53882 /* UIExtensions.swift */,
+				A9F657D1236A4A5C00C53882 /* DataStructures.swift */,
+				A9F657D3236A4AC700C53882 /* AdminDataManager.swift */,
+				A9F657D5236A4C2C00C53882 /* CustomManager.swift */,
+			);
+			name = "Data Management";
+			sourceTree = "<group>";
+		};
 		AF4C96D82127F1FB005D41C8 /* Table Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				AF7403641FE5E4F4000E0C12 /* Main.storyboard */,
-				AF0CF4361FE60A8B00FE893A /* DataManager.swift */,
+				A9F657CC236A491700C53882 /* Data Management */,
 				AF861F1E2012DB9B00E65F3B /* User Views */,
 				AFCD2C9021276A63004FE7FA /* Admin Views */,
 				AF4C96D82127F1FB005D41C8 /* Table Cells */,
@@ -229,7 +252,7 @@
 		AFCD2C9021276A63004FE7FA /* Admin Views */ = {
 			isa = PBXGroup;
 			children = (
-				AFEF238A22655B4700E6E26C /* AdminAddTeacherFormView.swift */,
+				AFEF238A22655B4700E6E26C /* AdminAddTeacherFormView.swift */,
 				AFEF238B22655B4700E6E26C /* SelectClassesTableView.swift */,
 				AF03C20E2127715D00D0831A /* ManageTeacherTableView.swift */,
 			);
@@ -480,19 +503,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFEF238C22655B4700E6E26C /* AdminAddTeacherFormView.swift in Sources */,
+				AFEF238C22655B4700E6E26C /* AdminAddTeacherFormView.swift in Sources */,
+				A9F657CE236A494C00C53882 /* AuthenticationManager.swift in Sources */,
 				AF4C96DA2127F2D0005D41C8 /* ManageTeacherCell.swift in Sources */,
 				AF13796D212760BB00D04E2B /* SignInViewController.swift in Sources */,
 				A90B75932270FF7B009EDE2F /* TabBarController.swift in Sources */,
 				AF861EDE2000411300E65F3B /* ClassInfoPopupViewController.swift in Sources */,
 				AF861EE02001E5BC00E65F3B /* ScheduleViewController.swift in Sources */,
-				AF0CF4371FE60A8B00FE893A /* DataManager.swift in Sources */,
+				A9F657D4236A4AC700C53882 /* AdminDataManager.swift in Sources */,
+				A9F657D6236A4C2C00C53882 /* CustomManager.swift in Sources */,
+				AF0CF4371FE60A8B00FE893A /* SessionDataManager.swift in Sources */,
 				AF1AD96C20FC659C008F2950 /* SessionScheduleCell.swift in Sources */,
+				A9F657D2236A4A5C00C53882 /* DataStructures.swift in Sources */,
 				AF03C20F2127715D00D0831A /* ManageTeacherTableView.swift in Sources */,
 				AF7403611FE5E4F4000E0C12 /* AppDelegate.swift in Sources */,
 				AF4C96DE2127F4D9005D41C8 /* SelectClassesCell.swift in Sources */,
 				AF0CF4351FE6093C00FE893A /* ClassTableView.swift in Sources */,
 				AF2BFD2B21275FB3008E3E90 /* SettingsTableView.swift in Sources */,
+				A9F657D0236A49C500C53882 /* UIExtensions.swift in Sources */,
 				AFEF238D22655B4700E6E26C /* SelectClassesTableView.swift in Sources */,
 				AF0CF43B1FFAF87300FE893A /* StudentAttendanceCell.swift in Sources */,
 			);

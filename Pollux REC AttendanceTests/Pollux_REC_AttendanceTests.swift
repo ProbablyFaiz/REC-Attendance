@@ -2,8 +2,8 @@
 //  Pollux_REC_AttendanceTests.swift
 //  Pollux REC AttendanceTests
 //
-//  Created by Ibrahim Surani on 12/16/17.
-//  Copyright © 2017 Ibrahim Surani. All rights reserved.
+//  Created by Faiz Surani on 12/16/17.
+//  Copyright © 2017 Faiz Surani. All rights reserved.
 //
 
 import XCTest
